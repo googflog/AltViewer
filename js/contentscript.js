@@ -11,13 +11,13 @@ $(function(){
 	var bMoveCap_m = false;
 
 	chrome.extension.onRequest.addListener(
-	  function(request, sender, sendResponse){
-	  	if (request.contetState == "OK_Desuka") {
-	  		sendResponse({
-	  			contetLoaded: true
-	  		});
-	  	}
-	  }
+		function(request, sender, sendResponse){
+			if (request.contetState == "OK_Desuka") {
+				sendResponse({
+					contetLoaded: true
+				});
+			}
+		}
 	);
 
 
@@ -420,8 +420,8 @@ $(function(){
 				path.css({"box-shadow":"none"})
 
 
-			    $(this).css("z-index",99998);
-			    $("#AltView_wrap div.Tip").show();
+				$(this).css("z-index",99998);
+				$("#AltView_wrap div.Tip").show();
 			})
 
 			//ツールチップ本体
@@ -466,24 +466,24 @@ $(function(){
 				$("#AltView_wrap div.Tip .fuki-bottom").css({
 				"margin-left":10,
 				"height":0,
-			    "width":0,
-			    "border":"5px solid #000",
-			    "border-top-color":"#333",
-			    "border-left-color":"transparent",
-			    "border-right-color":"transparent",
-			    "border-bottom-color":"transparent",
-			    "opacity":0.9
+				"width":0,
+				"border":"5px solid #000",
+				"border-top-color":"#333",
+				"border-left-color":"transparent",
+				"border-right-color":"transparent",
+				"border-bottom-color":"transparent",
+				"opacity":0.9
 				})
 				$("#AltView_wrap div.Tip .fuki-top").css({
 					"margin-left":10,
 					"height":0,
-				    "width":0,
-				    "border":"5px solid #000",
-				    "border-top-color":"transparent",
-				    "border-left-color":"transparent",
-				    "border-right-color":"transparent",
-				    "border-bottom-color":"#333",
-				    "opacity":0.9
+					"width":0,
+					"border":"5px solid #000",
+					"border-top-color":"transparent",
+					"border-left-color":"transparent",
+					"border-right-color":"transparent",
+					"border-bottom-color":"#333",
+					"opacity":0.9
 				})
 			};
 		};
