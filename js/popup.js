@@ -34,9 +34,6 @@
 				fromPopUp: "apper"
 			}, function(response){
 
-
-				console.log(response.bMoveCap);
-
 				if (response.bMoveCap_a) {
 					$("#Switch_Alt").addClass("close");
 				}else{
@@ -72,7 +69,6 @@
 						});
 					});
 				});
-				console.log( "AAA" , chrome.i18n.getMessage("PopUp_ShowAltBtn") );
 				//ローカライズ化
 				$("#Switch_Alt dt").html(chrome.i18n.getMessage("PopUp_ShowAltBtn"));
 				$("#Switch_Title dt").html(chrome.i18n.getMessage("PopUp_ShowMetaBtn"));
