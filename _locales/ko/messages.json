@@ -1,0 +1,23 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "설정 없음"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta 표시"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt 표시"
+   },
+   "PopUp_Loading": {
+      "message": "로딩..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "이미지에 설정된 Alt 또는 Title 특성을 툴팁에 보이는 상태로 표시 할 수 있습니다. 헤더의 Title, Meta 정보를 표시합니다."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   }
+}

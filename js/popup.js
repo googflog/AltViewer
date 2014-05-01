@@ -6,7 +6,6 @@
     {duration: 400, easing: "linear"}
 	)
 	*/
-
 	var timer_id = setInterval( function () {
 		chrome.tabs.getSelected(null, function(tab){
 			chrome.tabs.sendRequest(tab.id, {
@@ -35,13 +34,10 @@
 				fromPopUp: "apper"
 			}, function(response){
 
-
-				//console.log(response.bMoveCap);
-
 				if (response.bMoveCap_a) {
-					$("#Switch").addClass("close");
+					$("#Switch_Alt").addClass("close");
 				}else{
-					$("#Switch").removeClass("close");
+					$("#Switch_Alt").removeClass("close");
 				}
 
 				if (response.bMoveCap_m) {
@@ -49,34 +45,41 @@
 				}else{
 					$("#Switch_Title").removeClass("close");
 				}
-				
-				$("#Switch").click(function(){
-					chrome.tabs.getSelected(null, function(tab) {
-					  	chrome.tabs.sendRequest(tab.id, {fromPopUp:"click"}, function(response) {
-					  		if(response.bMoveCap_a==true){
-					  			$("#Switch").addClass("close");
-					  		}else{
-					  			$("#Switch").removeClass("close");
-					  		}
-					  	});
-					});
-				})
-				
-				$("#Switch_Title").click(function(){
-					chrome.tabs.getSelected(null, function(tab) {
-					  	chrome.tabs.sendRequest(tab.id, {fromPopUp:"click_m"}, function(response) {
-					  		if(response.bMoveCap_m==true){
-					  			$("#Switch_Title").addClass("close");
-					  		}else{
-					  			$("#Switch_Title").removeClass("close");
-					  		}
-					  	});
-					});
-				})
 
-
+				//ローカライズ化
+				$("#Switch_Alt dt").html(chrome.i18n.getMessage("PopUp_ShowAltBtn"));
+				$("#Switch_Title dt").html(chrome.i18n.getMessage("PopUp_ShowMetaBtn"));
+				$("#Loading p").html(chrome.i18n.getMessage("PopUp_Loading"));
 			});
 		});
-	}
+	};
+
+	$("#Switch_Alt").click(function(){
+		if($("#Switch_Alt").hasClass("close")){
+			chrome.tabs.getSelected(null, function(tab) {
+				chrome.tabs.sendRequest(tab.id, {fromPopUp:"click"}, function(response) {});
+			});
+			$("#Switch_Alt").removeClass("close");
+		}else{
+			chrome.tabs.getSelected(null, function(tab) {
+				chrome.tabs.sendRequest(tab.id, {fromPopUp:"click"}, function(response) {});
+			});
+			$("#Switch_Alt").addClass("close");
+		}
+	})
+	
+	$("#Switch_Title").click(function(){
+		chrome.tabs.getSelected(null, function(tab) {
+			chrome.tabs.sendRequest(tab.id, {fromPopUp:"click_m"}, function(response) {
+				if(response.bMoveCap_m==true){
+					$("#Switch_Title").addClass("close");
+				}else{
+					$("#Switch_Title").removeClass("close");
+				}
+			});
+		});
+	});
+
+
 });
 
