@@ -22,18 +22,18 @@ $(function(){
 
 
 	chrome.extension.onRequest.addListener(
-	  function(request, sender, sendResponse){
-	  	if (request.fromPopUp == "click") {
-	  		fAddParam_a();
-	  	}	  	
-	  	if (request.fromPopUp == "click_m") {
-	  		fAddParam_m();
-	  	}
-	  	sendResponse({
-  			bMoveCap_a: bMoveCap_a,
-  			bMoveCap_m: bMoveCap_m
-  		});
-	  }
+		function(request, sender, sendResponse){
+			if (request.fromPopUp == "click") {
+				fAddParam_a();
+			}	  	
+			if (request.fromPopUp == "click_m") {
+				fAddParam_m();
+			}
+			sendResponse({
+				bMoveCap_a: bMoveCap_a,
+				bMoveCap_m: bMoveCap_m
+			});
+		}
 	);
 
 	function function_name (target,argument) {
@@ -46,6 +46,7 @@ $(function(){
 
 	//メタ表示
 	function fAddParam_m(){
+
 		if($("div#TitleView_012345").is('*')){
 			fRemoveTitleView();
 			bMoveCap_m = false;
@@ -207,6 +208,9 @@ $(function(){
 
 	//Alt表示
 	function fAddParam_a(){
+
+		var Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
+
 		if($("#AltView_012345").is('*')){
 			$("#AltView_012345").remove();
 			$("img").removeAttr("alt_view_tip");
@@ -311,14 +315,14 @@ $(function(){
 					if(aAltData[i].alt!="alt_nashi_12340"){
 						TipData+="Alt: [<span class='at set'>"+aAltData[i].alt+"</span>]"
 					}else{
-						TipData+="Alt: ["+"<span class='at noset'>設定なし</span>]"
+						TipData+="Alt: ["+"<span class='at noset'>"+Alt_Fukidashi_txt+"</span>]"
 					}
 
 					//title
 					if(aAltData[i].title!="title_nashi_12340"){
 						TipData+="<br />Title: [<span class='at set'>"+aAltData[i].title+"</span>]"
 					}else{
-						TipData+="<br />Title: ["+"<span class='at noset'>設定なし</span>]"
+						TipData+="<br />Title: ["+"<span class='at noset'>"+Alt_Fukidashi_txt+"</span>]"
 					}					
 				}
 
@@ -334,13 +338,13 @@ $(function(){
 					if(aAltData[i].width!="width_nashi_12340"){
 						TipData+="<br />ImgSize: [<span class='set'><span class='set w'>"+aAltData[i].width+"</span> x ";
 					}else{
-						TipData+="<br />ImgSize: [<span class='set'><span class='noset'>設定なし</span>"+" x ";
+						TipData+="<br />ImgSize: [<span class='set'><span class='noset'>"+Alt_Fukidashi_txt+"</span>"+" x ";
 					}
 
 					if(aAltData[i].height!="height_nashi_12340"){
 						TipData+= "<span class='set h'>"+aAltData[i].height+"</span> px</span>]";
 					}else{
-						TipData+="<span class='noset'>設定なし</span></span>]";
+						TipData+="<span class='noset'>"+Alt_Fukidashi_txt+"</span></span>]";
 					}
 				}
 
@@ -407,7 +411,7 @@ $(function(){
 				var id=$(this).attr("data");
 				var path=aAltData[id].path;
 				path.css({
-					"box-shadow":"-2px -2px 3px rgba(255, 167, 21, 0.5), 2px 2px 3px rgba(255, 167, 21, 0.5), -2px 2px 3px rgba(255, 167, 21, 0.5), 2px -2px 3px rgba(255, 167, 21, 0.5)"
+					"box-shadow":"0px 0px 0px 5px rgba(255, 167, 21, 0.5)"
 				});
 
 			    $(this).css("z-index",99999);
@@ -497,7 +501,7 @@ $(function(){
 		$("#alt_view_tip_"+id).show();
 
 		path.css({
-			"box-shadow":"-2px -2px 3px rgba(255, 167, 21, 0.5), 2px 2px 3px rgba(255, 167, 21, 0.5), -2px 2px 3px rgba(255, 167, 21, 0.5), 2px -2px 3px rgba(255, 167, 21, 0.5)"
+			"box-shadow":"0px 0px 0px 5px rgba(255, 167, 21, 0.5)"
 		});
 	}
 	function fImageOut(event){

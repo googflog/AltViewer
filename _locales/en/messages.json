@@ -1,0 +1,23 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "No Settings"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Show title meta"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Show alt text"
+   },
+   "PopUp_Loading": {
+      "message": "Loading..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer."
+   },
+   "extDescription": {
+      "message": "This extension show alt and meta."
+   },
+   "extName": {
+      "message": "This extension show alt and meta."
+   }
+}
