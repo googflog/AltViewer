@@ -1,0 +1,23 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Aucun réglage"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta Afficher"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt Afficher"
+   },
+   "PopUp_Loading": {
+      "message": "Chargement..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Il est possible d'afficher l'attribut Title ou Alt est situé dans l'image. I pour afficher l'en-tête Titre, l'information Meta."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   }
+}

@@ -1,18 +1,20 @@
 {
-  "name":"Alt & Meta viewer",
+  "name":"__MSG_extName__",
   "manifest_version": 2,
-  "version":"4.7",
-  "description": "画像に設定された Alt または Title 属性をツールチップで見える状態にして表示させることができます。ヘッダの Title、Meta 情報を表示させます。",
+  "version":"4.9",
+  "description": "__MSG_extDescription__",
   "icons":{
     "48": "img/48.png",
     "128": "img/128.png"
   },
   "browser_action":{
     "default_icon":"img/19.png",
-    "default_title": "Alt & Meta viewer",
+    "default_title": "__MSG_defaultTitle__",
     "default_icon": "img/19.png",
     "default_popup": "popup.html"
   },
+  "default_locale": "ja",
+  "description": "__MSG_extDescription__",
   "content_scripts" : [
     {
       "matches" : [

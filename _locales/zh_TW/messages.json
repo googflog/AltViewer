@@ -1,0 +1,23 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "没有设置"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta 显示"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "图片 Alt 显示"
+   },
+   "PopUp_Loading": {
+      "message": "载入中..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "它可以被显示在显示为工具提示或Alt标题属性的图像中设定的状态。我以显示标题头，元信息。"
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   }
+}
