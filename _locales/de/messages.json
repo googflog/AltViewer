@@ -1,0 +1,23 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Keine Einstellung"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta Anzeige"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt Anzeige"
+   },
+   "PopUp_Loading": {
+      "message": "Verladung..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Zeigen Sie mir das Title-Attribut des Bildes oder Alt. Titel der Kopfzeile, werde ich die Meta-Informationen."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   }
+}
