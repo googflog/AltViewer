@@ -113,7 +113,8 @@ $(function(){
 			);
 			$("div#TitleView_012345 span").css(
 				'cssText',
-				'color: 		#9cc6ff!important;'
+				'color: 		#9cc6ff!important;'+
+				'margin: 	0 0.3em;'
 			);
 			$("div#TitleView_012345 p").css(
 				'cssText',
@@ -152,7 +153,6 @@ $(function(){
 
 			$("#TitleView_closebtn_012345 , html").click(function(e){
 				fRemoveTitleView();
-				return false
 			});
 
 			function fRemoveTitleView(){
@@ -453,6 +453,9 @@ $(function(){
 				"min-width":150,
 				"word-wrap":"break-word",
 				"color":"#b0b0b0"
+			})
+			$("#AltView_wrap div.Tip .txt span").css({
+				"margin":"0 0.5em 0 0.5em"
 			})
 
 			/*$("#AltView_wrap div.Tip.no-set .txt").css({
