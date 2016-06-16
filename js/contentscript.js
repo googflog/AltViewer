@@ -102,13 +102,16 @@ $(function() {
 
 			var titleview_012345_time;
 			clearTimeout(titleview_012345_time);
+
+			$("div#TitleView_012345").css({ "top": -$("div#TitleView_012345").height()-100 });
+			$("div#TitleView_012345").addClass("transition_mode");
 			titleview_012345_time = setTimeout(function() {
 				$("div#TitleView_012345").css({ "top": 0 }).one('webkitTransitionEnd', function() {
 					$(this).addClass("active");
 				});
 				fResizeTitleView();
 
-			}, 100);
+			}, 200);
 
 			$("#TitleView_closebtn_012345 , html").click(function(e) {
 				fRemoveTitleView();

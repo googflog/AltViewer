@@ -13,12 +13,15 @@
 	background: rgba(0, 0, 0, 0.75);
 	position: fixed;
 	z-index: 9999999;
-	top: -1000px;
+	top: -3000px;
 	left: 0;
 	width: 100%;
 	overflow: auto;
 	text-shadow: 0px 0px 7px #000, 0px 0px 7px #000;
-	transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+	&.transition_mode{
+		transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
+	}
+	
 	* {
 		font-family: 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	}
