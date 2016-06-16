@@ -55,9 +55,11 @@ $(function() {
 			$("html").addClass('TitleView_012345_show');
 			//ツールチップの表示エリアを追加する
 			$("body").append("<div id='TitleView_012345'><div id='TitleView_Contents_012345'></div></div>");
-			$("div#TitleView_Contents_012345").append("<h3>Title: " + $("title").text() + "</h3>");
-			$("div#TitleView_Contents_012345").append("<hr>");
-			$("div#TitleView_Contents_012345").append("<h3>Meta:</h3>");
+
+
+			$("#TitleView_Contents_012345").append("<h3>Title: " + $("title").text() + "</h3>");
+			$("#TitleView_Contents_012345").append("<hr>");
+			$("#TitleView_Contents_012345").append("<h3>Meta:</h3>");
 
 			$("meta").each(function() {
 				var meta = "";
@@ -97,29 +99,32 @@ $(function() {
 				$("div#TitleView_Contents_012345").append("<div class='metas'>" + meta + "</div>");
 			})
 
-			$("div#TitleView_Contents_012345").append("<div id='TitleView_closebtn_012345'>× CLOSE</div>");
+			$("#TitleView_012345").append("<div id='TitleView_closebtn_012345'>× CLOSE</div>");
+			$("#TitleView_012345").prepend("<div id='TitleView_closebtn_head_012345'>×</div>");
 
 
 			var titleview_012345_time;
 			clearTimeout(titleview_012345_time);
 
-			$("div#TitleView_012345").css({ "top": -$("div#TitleView_012345").height()-100 });
-			$("div#TitleView_012345").addClass("transition_mode");
+			$("#TitleView_012345").css({ "top": -$("#TitleView_012345").height()-100 });
+			$("#TitleView_012345").addClass("transition_mode");
 			titleview_012345_time = setTimeout(function() {
-				$("div#TitleView_012345").css({ "top": 0 }).one('webkitTransitionEnd', function() {
+				$("#TitleView_012345").css({ "top": 0 }).one('webkitTransitionEnd', function() {
 					$(this).addClass("active");
+					$("#TitleView_closebtn_head_012345, #TitleView_closebtn_012345").addClass("active");
 				});
 				fResizeTitleView();
 
 			}, 200);
 
-			$("#TitleView_closebtn_012345 , html").click(function(e) {
+			$("#TitleView_closebtn_012345, #TitleView_closebtn_head_012345, html").click(function(e) {
 				fRemoveTitleView();
+				$("#TitleView_closebtn_head_012345, #TitleView_closebtn_012345").removeClass("active");
 			});
 
 
 
-			$("div#TitleView_012345").click(function(e) {
+			$("#TitleView_012345").click(function(e) {
 				e.stopPropagation();
 			});
 
@@ -134,18 +139,18 @@ $(function() {
 			});
 
 			function fResizeTitleView() {
-				if ($(window).height() < $("div#TitleView_Contents_012345").height()) {
-					$("div#TitleView_012345").height($(window).height());
+				if ($(window).height() < $("#TitleView_Contents_012345").height()+$("#TitleView_closebtn_012345").height()) {
+					$("#TitleView_012345").height($(window).height());
 				} else {
-					$("div#TitleView_012345").height($("div#TitleView_Contents_012345").height());
+					$("#TitleView_012345").height($("#TitleView_Contents_012345").height()+$("#TitleView_closebtn_012345").height()+150);
 				};
 			};
 		}
 
 		function fRemoveTitleView() {
-			if ($("div#TitleView_012345").hasClass("active")) {
-				$("div#TitleView_012345").css({ top: -$("div#TitleView_012345").height() - 20 }).one('webkitTransitionEnd', function() {
-					$("div#TitleView_012345").remove();
+			if ($("#TitleView_012345").hasClass("active")) {
+				$("#TitleView_012345").css({ top: -$("#TitleView_012345").height() - 20 }).one('webkitTransitionEnd', function() {
+					$("#TitleView_012345").remove();
 					$("html").removeClass('TitleView_012345_show');
 					bMoveCap_m = false;
 				});
