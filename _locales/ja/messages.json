@@ -15,7 +15,7 @@
       "message": "Alt & Meta viewer"
    },
    "extDescription": {
-      "message": "画像に設定された Alt または Title 属性をツールチップで見える状態にして表示させることができます。ヘッダの Title、Meta 情報を表示させます。"
+      "message": "画像に設定された Alt または Title 属性をツールチップで表示することができます。ヘッダの Title、Meta 情報を一覧表示させることができます。"
    },
    "extName": {
       "message": "Alt & Meta viewer"

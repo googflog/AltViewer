@@ -37,11 +37,13 @@
 		line-height: 2em;
 	}
 	.metas {
-		padding: 0 2em 1.2em 5em;
+		padding: 0 2em 1.8em 5em;
 		margin: 0;
+		font-size: 15px;
+		font-weight: numal;
 	}
 	h3 {
-		font-size: 14px;
+		font-size: 16px;
 		font-weight: bold;
 		color: white;
 		border: none;
@@ -77,12 +79,12 @@
 			a {
 				display: -webkit-inline-box;
 			}
-			a:hover{
+			a:hover {
 				box-shadow: none;
 			}
 			text-align: left;
 			img {
-				&:hover{
+				&:hover {
 					box-shadow: 0px 0px 0px 4px rgba(255, 167, 21, 0.7);
 				}
 				transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
@@ -142,7 +144,8 @@
 	}
 }
 
-.AltView_012345_Tip_show {
+html body .AltView_012345_Tip_show,
+html body img.AltView_012345_Tip_show {
 	box-shadow: 0px 0px 0px 5px rgba(255, 167, 21, 0.7) !important;
 }
 
@@ -152,6 +155,61 @@
 	top: 0;
 	left: 0;
 	width: 100%;
+}
+
+#AltView_NoAlt_Wrap {
+	position: fixed;
+	z-index: 999999;
+	top: 0;
+	left: 0;
+	width: 100%;
+	color: white;
+	padding: 0em;
+	font-size: 17px;
+	transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+	// transform: translateY(-100px);
+	margin-top: -220px;
+	#AltView_NoAlt_Result {
+		padding: 0;
+		margin: 0;
+	}
+	#AltView_NoAlt_Result_Wrap {
+		background: rgba(51, 51, 51,0.9);
+		width: 100%;
+		overflow-x: auto;
+		height: 160px;
+	}
+	#AltView_NoAlt_head_closebtn {
+		font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
+		line-height: 1em !important;
+		float: right;
+		padding: 1em;
+		background: #333;
+		cursor: pointer;
+		min-width: 100px;
+		text-align: center;
+		background: #eb6100;
+		margin-right: 2em;
+		font-weight: normal !important;
+		font-size: 16px !important;
+		padding: 17px 30px 17px 30px !important;
+		box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
+		span{
+			font-size: 19px !important;
+		}
+	}
+
+	ul {
+		margin: 0;
+		display: table;
+		li {
+			padding: 1em;
+			display: table-cell;
+			img:hover {
+				box-shadow: 0px 0px 0px 4px rgba(255, 167, 21, 0.7);
+			}
+		}
+	}
 }
 
 #AltView_wrap {

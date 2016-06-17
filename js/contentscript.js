@@ -65,6 +65,7 @@ $(function() {
 				var meta = "";
 				var imgis = 0;
 				var img = "";
+				var imgpath = "";
 				for (var j = 0; j < $(this).context.attributes.length; j++) {
 					var name = $(this).context.attributes[j].nodeName;
 					var val = $(this).context.attributes[j].nodeValue;
@@ -81,13 +82,15 @@ $(function() {
 					if (0 <= val.toLowerCase().indexOf("http")) {
 						//画像か？
 						imgis++;
+
+						imgpath = val;
 					}
 
 
 					meta += name + ' = &quot;<span>' + _val + '</span>&quot; ';
 
 					if (2 <= imgis) {
-						img = "<div class='img'><a href=" + val + " target='_blank'><img src=" + val + " width=150 ></a></div>"
+						img = "<div class='img'><a href=" + imgpath + " target='_blank'><img src=" + imgpath + " width=150 ></a></div>"
 					}
 				};
 
@@ -169,6 +172,7 @@ $(function() {
 		var Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
 		if (0 < $("#AltView_012345").length) {
 			$("#AltView_012345").remove();
+			$("#AltView_NoAlt_Wrap").remove();
 			$("img").removeAttr("alt_view_tip");
 
 			$("img").off("mouseover.AltTitleView_012345", fImageOver);
@@ -333,6 +337,73 @@ $(function() {
 				//表示エリアに追加する
 				$("#AltView_wrap").append(Tip);
 			}
+
+			var alt_nashi=0;
+			var title_nashi=0;
+			for (i = 0; i < AltTitleView_012345.AltData.length; i++) {
+				if(AltTitleView_012345.AltData[i].alt=="alt_nashi_12340"){alt_nashi++;}
+				if(AltTitleView_012345.AltData[i].title=="title_nashi_12340"){title_nashi++;}
+			}
+			console.log( "Alt なし : " , alt_nashi,"個" );
+			console.log( "Title なし : " , title_nashi,"個" );
+
+			var noAltList = true;
+			if(noAltList){
+				if(0 < alt_nashi || 0 < title_nashi ){
+					$("html").prepend(
+						"<div id='AltView_NoAlt_Wrap'>"+
+							"<div id='AltView_NoAlt_Result_Wrap'><ul id='AltView_NoAlt_Result'></ul></div>"+
+							"<div id='AltView_NoAlt_head_closebtn'>Altなし <span>"+alt_nashi+"</span> 個</div>"+
+						"</div>"
+					);
+					if(0 < alt_nashi){
+
+						for (i = 0; i < AltTitleView_012345.AltData.length; i++) {
+							if(AltTitleView_012345.AltData[i].alt=="alt_nashi_12340"){
+								pushpush(AltTitleView_012345.AltData[i])
+							}
+						}
+						function pushpush(_obj_root){
+							var _obj = $("<li id='AltView_No_AltCount'><img src='"+_obj_root.src+"' width='100'></li>");
+							var v = _obj_root.path.offset().top;
+							$(_obj).on("click",function(){
+								$(window).scrollTop(v-200);
+							});
+							$(_obj).on("mouseout",function(){
+								_obj_root.path.removeClass('AltView_012345_Tip_show');
+								$("#AltView_wrap div.Tip").show();
+							});
+							$(_obj).on("mouseover",function(){
+								_obj_root.path.addClass('AltView_012345_Tip_show');
+								$("#AltView_wrap div.Tip").not($("#alt_view_tip_"+_obj_root.id)).hide();
+								$("#alt_view_tip_"+_obj_root.id).show();
+							});
+							$("#AltView_NoAlt_Result").append(_obj);
+						}
+					}
+					if(0 < title_nashi){
+						console.log( "Title なし : " , title_nashi,"個" );
+					}
+					$("#AltView_NoAlt_Wrap").css({"margin-top": -160});
+				}
+				$("#AltView_NoAlt_head_closebtn").on("click",function(){
+					if($("#AltView_NoAlt_Wrap").hasClass('active')){
+						$("#AltView_NoAlt_Wrap").removeClass('active');
+						$("#AltView_NoAlt_Wrap").css("margin-top",-160);
+					}else{
+						$("#AltView_NoAlt_Wrap").addClass('active');
+						$("#AltView_NoAlt_Wrap").css("margin-top",0);
+					};
+				})
+				$("body").on("click",function(){
+					if($("#AltView_NoAlt_Wrap").hasClass('active')){
+						$("#AltView_NoAlt_Wrap").removeClass('active');
+						$("#AltView_NoAlt_Wrap").css("margin-top",-160);
+					}
+				});
+			}
+
+
 
 			//画面リサイズ時の処理
 			$(window).off("resize.AltTitleView_012345");
