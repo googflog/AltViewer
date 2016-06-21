@@ -349,7 +349,7 @@ $(function() {
 
 			var noAltList = true;
 			if(noAltList){
-				if(0 < alt_nashi || 0 < title_nashi ){
+				if( 0 < alt_nashi ){
 					$("html").prepend(
 						"<div id='AltView_NoAlt_Wrap'>"+
 							"<div id='AltView_NoAlt_Result_Wrap'><ul id='AltView_NoAlt_Result'></ul></div>"+
