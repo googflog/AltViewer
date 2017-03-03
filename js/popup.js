@@ -18,7 +18,7 @@
 				}else{
 					//console.log("x",response.contetLoaded);
 				}
-				
+
 			});
 		});
 	} , 100 );
@@ -47,9 +47,9 @@
 				}
 
 				//ローカライズ化
-				$("#Switch_Alt dt").html(chrome.i18n.getMessage("PopUp_ShowAltBtn"));
-				$("#Switch_Title dt").html(chrome.i18n.getMessage("PopUp_ShowMetaBtn"));
-				$("#Loading p").html(chrome.i18n.getMessage("PopUp_Loading"));
+				$("#Switch_Alt .switchBtn__ttl").html(chrome.i18n.getMessage("PopUp_ShowAltBtn"));
+				$("#Switch_Title .switchBtn__ttl").html(chrome.i18n.getMessage("PopUp_ShowMetaBtn"));
+				$("#Loading .loadingBlock__txt").html(chrome.i18n.getMessage("PopUp_Loading"));
 			});
 		});
 	};
@@ -67,7 +67,7 @@
 			$("#Switch_Alt").addClass("close");
 		}
 	})
-	
+
 	$("#Switch_Title").click(function(){
 		chrome.tabs.getSelected(null, function(tab) {
 			chrome.tabs.sendRequest(tab.id, {fromPopUp:"click_m"}, function(response) {
@@ -82,4 +82,3 @@
 
 
 });
-

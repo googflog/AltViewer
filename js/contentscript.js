@@ -171,6 +171,7 @@ $(function() {
 
 		var Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
 		if (0 < $("#AltView_012345").length) {
+			//ツールチップエリアを削除する
 			$("#AltView_012345").remove();
 			$("#AltView_NoAlt_Wrap").remove();
 			$("img").removeAttr("alt_view_tip");
@@ -191,6 +192,10 @@ $(function() {
 			$("img").each(function(index, element) {
 
 				var id = index;
+
+				console.log($(this).attr("style"))
+
+				var style = $(this).attr("style");
 
 				//画像位置とサイズと参照先
 				var top = $(this).offset().top;
@@ -248,7 +253,7 @@ $(function() {
 
 
 
-				AltTitleView_012345.AltData.push({ id: id, src: src, top: top, left: left, alt: alt, title: title, width: vieW, height: vieH, naturalW: naW, naturalH: naH, path: path })
+				AltTitleView_012345.AltData.push({ id: id, style: style, src: src, top: top, left: left, alt: alt, title: title, width: vieW, height: vieH, naturalW: naW, naturalH: naH, path: path })
 			});
 
 			for (i = 0; i < AltTitleView_012345.AltData.length; i++) {

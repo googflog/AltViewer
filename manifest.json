@@ -13,6 +13,7 @@
     "default_icon": "img/19.png",
     "default_popup": "popup.html"
   },
+  "options_page": "options.html",
   "default_locale": "ja",
   "description": "__MSG_extDescription__",
   "content_scripts" : [
@@ -22,7 +23,7 @@
         "https://*/*"
       ],
       "js":["js/jquery.js","js/contentscript.js"],
-      "css":["css/common.css"],
+      "css":["css/contentscript.css"],
       "run_at" : "document_idle",
       "all_frames" : false
     }
