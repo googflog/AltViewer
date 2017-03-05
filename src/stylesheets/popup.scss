@@ -53,7 +53,7 @@ body {
 
 	&.close &__btn {
 		height: 45px;
-		background: url("../img/icon4.png") center center no-repeat #b1500c;
+		background: url("../../images/icon4.png") center center no-repeat #b1500c;
 
 		img {
 			display: none;
@@ -66,7 +66,7 @@ body {
 		}
 
 		&:hover {
-			background: url("../img/icon4.png") center center no-repeat #f87a00;
+			background: url("../../images/icon4.png") center center no-repeat #f87a00;
 		}
 	}
 }
@@ -77,7 +77,7 @@ body {
 	left: 0;
 	width: 190px;
 	height: 92px;
-	background: url("../img/loading.gif") center 30px no-repeat #272727;
+	background: url("../../images/loading.gif") center 30px no-repeat #272727;
 
 	&__txt {
 		color: #666;
