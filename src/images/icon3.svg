@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="15" viewBox="0 0 45 15">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="META_一覧_icon" data-name="META 一覧 icon" class="cls-1" d="M147,105h18v3H147v-3Zm0,4h18v3H147v-3Zm0,4h18v3H147v-3Zm0,4h18v3H147v-3Z" transform="translate(-133.5 -105)"/>
+</svg>

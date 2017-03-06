@@ -53,7 +53,7 @@ body {
 
 	&.close &__btn {
 		height: 45px;
-		background: url("../../images/icon4.png") center center no-repeat #b1500c;
+		background: url("../../images/close_w.svg") center center no-repeat #b1500c;
 
 		img {
 			display: none;
@@ -66,7 +66,7 @@ body {
 		}
 
 		&:hover {
-			background: url("../../images/icon4.png") center center no-repeat #f87a00;
+			background: url("../../images/close_w.svg") center center no-repeat #f87a00;
 		}
 	}
 }

@@ -18,15 +18,15 @@ module MetaViewModule {
             $("html").addClass('TitleView_012345_show')
 
             //Metaの表示エリアを追加する
-            this.ObjMetaViewBlock = $("<div id='TitleView_012345'></div>");
+            this.ObjMetaViewBlock = $("<div id='TitleView_012345' class='TitleView012345_Box'></div>");
             $("body").append(this.ObjMetaViewBlock);
 
-            this.ObjMetaViewContent = $("<div id='TitleView_Contents_012345'></div>");
+            this.ObjMetaViewContent = $("<div id='TitleView_Contents_012345' class='TitleView012345_Contents'></div>");
             this.ObjMetaViewBlock.append(this.ObjMetaViewContent);
 
-            this.ObjMetaViewContent.append("<h3>Title: " + $("title").text() + "</h3>");
-            this.ObjMetaViewContent.append("<hr>");
-            this.ObjMetaViewContent.append("<h3>Meta:</h3>");
+            this.ObjMetaViewContent.append("<h3 class='TitleView012345_Contents__ttl'>Title: " + $("title").text() + "</h3>");
+            this.ObjMetaViewContent.append("<hr class='TitleView012345_Contents__hr'>");
+            this.ObjMetaViewContent.append("<h3 class='TitleView012345_Contents__ttl'>Meta:</h3>");
 
             //Metaを調べる
             $("meta").each(function() {
@@ -40,7 +40,7 @@ module MetaViewModule {
                     var _val = $(this).context.attributes[j].nodeValue;
                     if (0 <= val.indexOf("http")) {
                         //URLか？
-                        _val = "<a href='" + val.toString() + "' target='_blank'>" + val.toString() + "</a>"
+                        _val = "<a class='TitleView012345_Contents__metas__a' href='" + val.toString() + "' target='_blank'>" + val.toString() + "</a>"
                     }
 
                     if (0 <= val.toLowerCase().indexOf("image")) {
@@ -54,10 +54,10 @@ module MetaViewModule {
                         imgpath = val;
                     }
 
-                    meta += name + ' = &quot;<span>' + _val + '</span>&quot; ';
+                    meta += name + ' = &quot;<span class="TitleView012345_Contents__metas__span">' + _val + '</span>&quot; ';
 
                     if (2 <= imgis) {
-                        img = "<div class='img'><a href=" + imgpath + " target='_blank'><img src=" + imgpath + " width=150 ></a></div>"
+                        img = "<div class='TitleView012345_Contents__metas__img'><a class='TitleView012345_Contents__metas__a' href=" + imgpath + " target='_blank'><img src=" + imgpath + " width=150 ></a></div>"
                     }
                 };
 
@@ -65,12 +65,12 @@ module MetaViewModule {
                     meta += img;
                 }
 
-                this_.ObjMetaViewContent.append("<div class='metas'>" + meta + "</div>");
+                this_.ObjMetaViewContent.append("<div class='TitleView012345_Contents__metas'>" + meta + "</div>");
             })
 
             //閉じるボタン
-            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345'>× CLOSE</div>");
-            this.ObjMetaViewBlock.prepend("<div id='TitleView_closebtn_head_012345'>×</div>");
+            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345' class='TitleView012345_CloseBtn'>× CLOSE</div>");
+            this.ObjMetaViewBlock.prepend("<div id='TitleView_closebtn_head_012345' class='TitleView012345_HeadCloseBtn'>×</div>");
 
             //Meta一覧表示
             var titleview_012345_time: number;

@@ -2,12 +2,13 @@
 	overflow: hidden;
 }
 
-#TitleView_012345 {
-	font-size: 14px;
+#TitleView_012345.TitleView012345_Box {
+	font-size: 13px;
 	line-height: 2em;
+	letter-spacing: 0.1em;
 	color: white;
 	text-align: left;
-	padding: 0px;
+	padding: 0;
 	box-sizing: border-box;
 	margin: 0;
 	background: rgba(0, 0, 0, 0.75);
@@ -17,81 +18,92 @@
 	left: 0;
 	width: 100%;
 	overflow: auto;
-	text-shadow: 0px 0px 7px #000, 0px 0px 7px #000;
+	text-shadow: 0 0 7px #000, 0 0 7px #000;
+
 	&.transition_mode {
 		transition: 0.4s cubic-bezier(0.77, 0, 0.175, 1);
 	}
+
 	* {
 		font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 		// font-family: 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	}
-	p,
-	span {
-		box-sizing: border-box;
-	}
-	span {
-		padding: 0;
-		margin: 0;
-		color: #9cc6ff;
-		margin: 0 0.3em;
-		line-height: 2em;
-	}
-	.metas {
-		padding: 0 2em 1.8em 5em;
-		margin: 0;
-		font-size: 15px;
-		font-weight: numal;
-	}
-	h3 {
-		font-size: 16px;
-		font-weight: bold;
-		color: white;
-		border: none;
-		padding: 1em 1em 1em 1em;
-		margin: 0;
-		background: none;
-		box-sizing: border-box;
-	}
-	hr {
-		height: 2px;
-		background: rgba(255, 255, 255, 0.3);
-		border: 0;
-		margin: 0;
-		padding: 0;
-	}
-	a,
-	a:active,
-	a:visited {
-		color: rgb(156, 198, 255);
-		text-decoration: none;
-	}
-	a:hover {
-		box-shadow: 0px 0px 0px 4px rgba(255, 167, 21, 0.7);
-		background: none;
-		text-decoration: none;
-	}
-	#TitleView_Contents_012345 {
-		padding: 3em 0 0 0;
+
+	.TitleView012345_Contents {
+		padding: 3em 0 0;
 		max-width: 1000px;
 		margin: 0 auto;
-		.img {
-			padding: 1em 0 1em 2em;
-			a {
-				display: -webkit-inline-box;
+		// white-space: nowrap;
+		word-break: break-all;
+		&__ttl {
+			font-size: 14px;
+			line-height: 1.8em;
+			font-weight: bold;
+			color: white;
+			border: none;
+			padding: 1em;
+			margin: 0;
+			background: none;
+			box-sizing: border-box;
+		}
+
+		&__hr {
+			height: 2px;
+			background: rgba(255, 255, 255, 0.3);
+			border: 0;
+			margin: 0;
+			padding: 0;
+		}
+
+		&__metas {
+			padding: 0 1.8em 1.8em 5em;
+			margin: 0;
+			font-size: 13px;
+			font-weight: numal;
+			&__span {
+				box-sizing: border-box;
+				padding: 0;
+				margin: 0;
+				color: #9cc6ff;
+				margin: 0 0.3em;
+				line-height: 2em;
 			}
-			a:hover {
-				box-shadow: none;
-			}
-			text-align: left;
-			img {
-				&:hover {
-					box-shadow: 0px 0px 0px 4px rgba(255, 167, 21, 0.7);
+			&__img {
+				padding: 1em 0 1em 2em;
+
+				a {
+					display: -webkit-inline-box;
 				}
+				//
+				// a:hover {
+				// 	box-shadow: none;
+				// }
+				text-align: left;
+
+				img {
+					&:hover {
+						box-shadow: 0 0 0 4px rgba(255, 167, 21, 0.7);
+					}
+					transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+				}
+			}
+			&__a,
+			&__a:active,
+			&__a:visited {
+				color: rgb(156, 198, 255);
+				text-decoration: none;
+				display: inline;
 				transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+			}
+
+			&__a:hover {
+				box-shadow: 0 0 0 4px rgba(255, 167, 21, 0.7);
+				background: none;
+				text-decoration: none;
 			}
 		}
 	}
-	#TitleView_closebtn_head_012345 {
+	.TitleView012345_HeadCloseBtn {
 		position: relative;
 		position: fixed;
 		top: 17px;
@@ -108,17 +120,20 @@
 		transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 		opacity: 0;
 		transform: scale(0);
+
 		&:hover {
 			text-shadow: none;
 			color: white;
 			background: #eb6100;
 		}
+
 		&.active {
 			transform: scale(1);
 			opacity: 1;
 		}
 	}
-	#TitleView_closebtn_012345 {
+
+	.TitleView012345_CloseBtn {
 		margin: 0;
 		padding: 1em 0;
 		cursor: pointer;
@@ -128,18 +143,26 @@
 		color: #fff;
 		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
 		max-width: 1000px;
-		margin: 2em auto 1em auto;
+		margin: 2em 34px 1em;
 		transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 		opacity: 0;
 		transform: scale(0);
+
 		&:hover {
 			text-shadow: none;
 			color: white;
 			background: #eb6100;
 		}
+
 		&.active {
 			transform: scale(1);
 			opacity: 1;
 		}
 	}
+	@media (min-width: 1070px){
+		.TitleView012345_CloseBtn {
+			margin: 2em auto 1em;
+		}
+	}
+
 }

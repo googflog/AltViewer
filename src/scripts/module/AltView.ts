@@ -111,7 +111,8 @@ module AltViewModule {
 				$("#AltView_wrap div.Tip").show();
 			})
 
-
+			//Alt数
+			this.noAltCount(this.AltTitleView_012345.AltData);
 
 			//Alt無しの数をconsoleに表示
 			this.noAltShowConsoleLog();
@@ -119,6 +120,9 @@ module AltViewModule {
 
 			//Alt無しリスト
 			this.addNoAltList();
+
+			//
+			this.fResizeTitleView();
 
 		}
 
@@ -175,41 +179,41 @@ module AltViewModule {
 					//AltとTitleが同じがチェック
 					if (data.alt == data.title) {
 						//同じ
-						_tipData += "Alt,Title: [<span class='at set'>" + data.alt + "</span>]";
+						_tipData += "<span class='wk'>Alt,Title: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>";
 					} else {
 						//違う
-						_tipData += "Alt: [<span class='at noset'>" + data.alt + "</span>]";
-						_tipData += "<br />Title: [<span class='at noset'>" + data.title + "</span>]";
+						_tipData += "<span class='wk'>Alt: [</span><span class='at noset'>" + data.alt + "</span><span class='wk'>]</span>";
+						_tipData += "<br /><span class='wk'>Title: [</span><span class='at noset'>" + data.title + "</span><span class='wk'>]</span>";
 					}
 				} else {
 					//alt
 					if (data.alt) {
-						_tipData += "Alt: [<span class='at set'>" + data.alt + "</span>]"
+						_tipData += "<span class='wk'>Alt: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>"
 					} else {
-						_tipData += "Alt: [" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>]"
+						_tipData += "<span class='wk'>Alt: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
 					}
 
 					//title
 					if (data.title) {
-						_tipData += "<br />Title: [<span class='at set'>" + data.title + "</span>]"
+						_tipData += "<br /><span class='wk'>Title: [</span><span class='at set'>" + data.title + "</span><span class='wk'>]</span>"
 					} else {
-						_tipData += "<br />Title: [" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>]"
+						_tipData += "<br /><span class='wk'>Title: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
 					}
 				}
 			} else {
 				if (showAlt) {
 					if (data.alt) {
-						_tipData += "Alt: [<span class='at set'>" + data.alt + "</span>]"
+						_tipData += "<span class='wk'>Alt: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>"
 					} else {
-						_tipData += "Alt: [" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>]"
+						_tipData += "<span class='wk'>Alt: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
 					}
 				}
 				if (showTitle) {
 					if (data.title) {
 						if (showAlt) _tipData += "<br />";
-						_tipData += "Title: [<span class='at set'>" + data.title + "</span>]"
+						_tipData += "<span class='wk'>Title: [</span><span class='at set'>" + data.title + "</span><span class='wk'>]</span>"
 					} else {
-						_tipData += "Title: [" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>]"
+						_tipData += "<span class='wk'>Title: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
 					}
 				}
 			}
@@ -262,7 +266,7 @@ module AltViewModule {
 
 		//画像パス
 		addImgSrc(data: any): string {
-			return "<br />Src: [<span class='set'>" + data.src + "</span>]"
+			return "<br />Src: [<span class='set'><a href='" + data.src + "' target='_blank'>" + data.src + "</a></span>]"
 		}
 
 		//拡張子
@@ -290,47 +294,62 @@ module AltViewModule {
 
 		//Altなしの数を console.log に表示
 		noAltShowConsoleLog(): void {
-			console.log("Alt なし : ", this.alt_nashi, "個");
+			console.log("%cAlt & Meta viewer %cver " + chrome.runtime.getManifest().version, 'padding:0.2em 1em; background: #f87a00; color:white; font-size: 13px;', 'background: #ccc; padding:0.2em 0.5em; font-size: 13px;');
+			console.log("Alt なし : %c" + this.alt_nashi + "%c 個", 'font-size: 12px; font-weight: bold;', '');
 		}
 		noTitleShowConsoleLog(): void {
-			console.log("Title なし : ", this.title_nashi, "個");
+			console.log("Title なし : %c" + this.title_nashi + "%c 個", 'font-size: 12px; font-weight: bold;', '');
 		}
+
+
 
 		//
 		addNoAltList(): void {
+			var this_ = this;
 			if (0 < this.alt_nashi) {
 				$("html").prepend(
-					"<div id='AltView_NoAlt_Wrap'>" +
+					"<div id='AltView_NoAlt_Wrap' class='load'>" +
 					"<div id='AltView_NoAlt_Result_Wrap'><ul id='AltView_NoAlt_Result'></ul></div>" +
-					"<div id='AltView_NoAlt_head_closebtn'>Altなし <span>" + this.alt_nashi + "</span> 個</div>" +
-					"</div>");
-
-
+					"<div id='AltView_NoAlt_head_closeAltBtn'>" +
+					"<img src='" + chrome.runtime.getURL("images/close_w.svg") + "' alt='CloseBtn' width='35'>" +
+					"</div>" +
+					"<div id='AltView_NoAlt_head_closebtn'>" +
+					"<img class='arrow' src='" + chrome.runtime.getURL("images/arrow.svg") + "' alt='' width='35'>" +
+					"<p>Altなし <span>" + this_.alt_nashi + "</span> 個</p></div>" +
+					"</div>")
 				for (var i = 0; i < this.AltTitleView_012345.AltData.length; i++) {
 					if (!this.AltTitleView_012345.AltData[i].alt) {
 						this.addNoAltListObj(this.AltTitleView_012345.AltData[i])
 					}
 				}
+				setTimeout(function() { $("#AltView_NoAlt_Wrap").removeClass("load"); }, 500);
+
+				$("#AltView_NoAlt_head_closebtn").on("click", function() {
+					$("#AltView_NoAlt_Wrap").toggleClass("active");
+				});
+				$("#AltView_NoAlt_head_closeAltBtn").on("click", function() {
+					this_.close();
+				});
 			}
-			$("#AltView_NoAlt_Wrap").css({ "margin-top": -160 });
 		}
 
-		addNoAltListObj(_obj_root: any): void {
-			var _listobj: any = $("<li id='AltView_No_AltCount'><img src='" + _obj_root.src + "' width='100'></li>");
-			var v = _obj_root.path.offset().top;
-			$(_listobj).on("click", function() {
-				$(window).scrollTop(v - 200);
+		addNoAltListObj(obj: any): void {
+			var listobj = $("<li id='AltView_No_AltCount'><img src='" + obj.src + "' width='100'></li>");
+
+			var top_ = obj.img_path.offset().top;
+			listobj.on("click", function() {
+				$(window).scrollTop(top_ - 200);
 			});
-			$(_listobj).on("mouseout", function() {
-				_obj_root.path.removeClass('AltView_012345_Tip_show');
+			listobj.on("mouseout", function() {
+				obj.img_path.removeClass('AltView_012345_Tip_show');
 				$("#AltView_wrap div.Tip").show();
 			});
-			$(_listobj).on("mouseover", function() {
-				_obj_root.path.addClass('AltView_012345_Tip_show');
-				$("#AltView_wrap div.Tip").not($("#alt_view_tip_" + _obj_root.id)).hide();
-				$("#alt_view_tip_" + _obj_root.id).show();
+			listobj.on("mouseover", function() {
+				obj.img_path.addClass('AltView_012345_Tip_show');
+				$("#AltView_wrap div.Tip").not($("#alt_view_tip_" + obj.id)).hide();
+				$("#alt_view_tip_" + obj.id).show();
 			});
-			$("#AltView_NoAlt_Result").append(_listobj);
+			$("#AltView_NoAlt_Result").append(listobj);
 
 		};
 
@@ -422,26 +441,15 @@ module AltViewModule {
 
 		fResizeTitleView() {
 			//画面リサイズ時の処理
-
+			var this_ = this;
 			$(window).on("resize.AltTitleView_012345", function() {
 
-				for (var i = 0; i < AltTitleView_012345.AltData.length; i++) {
-					AltTitleView_012345.AltData[i].fpath.css("top", AltTitleView_012345.AltData[i].path.offset().top);
-					AltTitleView_012345.AltData[i].fpath.css("left", AltTitleView_012345.AltData[i].path.offset().left);
-
-					// Tip位置調整
-					var top = AltTitleView_012345.AltData[i].fpath.offset().top;
-					var height = AltTitleView_012345.AltData[i].fpath.height();
-					if (top - height < 0) {
-						// ▲ の方向
-						var id = AltTitleView_012345.AltData[i].fpath.attr("data");
-						var height = AltTitleView_012345.AltData[id].height;
-						AltTitleView_012345.AltData[i].fpath.css("top", (height));
-					} else {
-						// ▼ の方向
-						AltTitleView_012345.AltData[i].fpath.css("top", (top - height));
-					}
+				for (var i = 0; i < this_.AltTitleView_012345.AltData.length; i++) {
+					this_.AltTitleView_012345.AltData[i].fpath.css("top", this_.AltTitleView_012345.AltData[i].img_path.offset().top);
+					this_.AltTitleView_012345.AltData[i].fpath.css("left", this_.AltTitleView_012345.AltData[i].img_path.offset().left);
 				}
+				// Tip位置調整
+				this_.fukidashiCSS();
 
 			});
 
@@ -452,23 +460,29 @@ module AltViewModule {
 			var this_ = this;
 			//ツイールチップの吹き出しの方向
 			setTimeout(function() {
+				// $(".Tip .fuki-top, .Tip .fuki-bottom").remove();
 				$(".Tip").each(function() {
+					var id = $(this).attr("data");
+					$(this).find(".fuki-top").remove();
+					$(this).find(".fuki-bottom").remove();
 					$(this).show();
-					var top = $(this).offset().top;
+					// var top = $(this).offset().top;
+					var top = this_.AltTitleView_012345.AltData[id].top;
 					var height = $(this).outerHeight();
 					if (top - height < 0) {
 						// ▲ の方向
-						var id = $(this).attr("data");
+
 						var _height = this_.AltTitleView_012345.AltData[id].top + this_.AltTitleView_012345.AltData[id].height;
 						$(this).css("top", (_height));
 						$(this).prepend("<div class='fuki-top'></div>")
+
 					} else {
 						// ▼ の方向
 						$(this).css("top", (top - height - 7));
 						$(this).append("<div class='fuki-bottom'></div>")
 					}
 				});
-			}, 100);
+			}, 300);
 
 
 		}

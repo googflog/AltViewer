@@ -29,5 +29,5 @@
       }
     ],
     "permissions": ["tabs"],
-    "web_accessible_resources": ["images/close.svg"]
+    "web_accessible_resources": ["images/close.svg","images/close_w.svg","images/arrow.svg"]
 }
