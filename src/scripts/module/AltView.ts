@@ -294,11 +294,11 @@ module AltViewModule {
 
 		//Altなしの数を console.log に表示
 		noAltShowConsoleLog(): void {
-			console.log("%cAlt & Meta viewer %cver " + chrome.runtime.getManifest().version, 'padding:0.2em 1em; background: #f87a00; color:white; font-size: 13px;', 'background: #ccc; padding:0.2em 0.5em; font-size: 13px;');
-			console.log("Alt なし : %c" + this.alt_nashi + "%c 個", 'font-size: 12px; font-weight: bold;', '');
+			console.log("%cAlt & Meta viewer %cver " + chrome.runtime.getManifest().version, 'padding:0.3em 1em; background: #f87a00; color:white; font-size: 11px;', 'background: #ccc; padding:0.3em 0.5em; font-size: 11px;');
+			console.log("Alt なし : %c" + this.alt_nashi + "%c 個", 'font-size: 10px; font-weight: bold;', '');
 		}
 		noTitleShowConsoleLog(): void {
-			console.log("Title なし : %c" + this.title_nashi + "%c 個", 'font-size: 12px; font-weight: bold;', '');
+			console.log("Title なし : %c" + this.title_nashi + "%c 個", 'font-size: 10px; font-weight: bold;', '');
 		}
 
 

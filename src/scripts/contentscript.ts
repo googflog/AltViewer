@@ -9,7 +9,6 @@ class ContentScript {
     showMeta: boolean = false;
 
     constructor() {
-      console.log("AAA")
         chrome.runtime.onMessage.addListener(function(anymessage, sender, sendResponse) {
             console.log("ポップアップが開いてメッセージを受けた", anymessage);
             if (anymessage.contetState == "AreYouReady?") {

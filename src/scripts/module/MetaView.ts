@@ -118,17 +118,17 @@ module MetaViewModule {
         }
 
         //
-        close() {
-            var this_ = this;
-            if (this.ObjMetaViewBlock.hasClass("active")) {
-                this.ObjMetaViewBlock.css({ top: -this.ObjMetaViewBlock.height() - 20 }).one('webkitTransitionEnd', function() {
-                    this_.ObjMetaViewBlock.remove();
-                    $(window).off('resize.TitleView_012345');
-                    $("html").removeClass('TitleView_012345_show');
-                    this_.dispatchEvent(new events.Event("show", false));
-                });
-            }
-        }
+		close() {
+			var this_ = this;
+			if (this.ObjMetaViewBlock.hasClass("active")) {
+				this.dispatchEvent(new events.Event("show", false));
+				this.ObjMetaViewBlock.css({ top: -this.ObjMetaViewBlock.height() - 20 }).one('webkitTransitionEnd', function() {
+					this_.ObjMetaViewBlock.remove();
+					$(window).off('resize.TitleView_012345');
+					$("html").removeClass('TitleView_012345_show');
+				});
+			}
+		}
     }
 
 

@@ -61,6 +61,7 @@ class Int {
 				chrome.tabs.sendMessage(tab[0].id, {
 					fromPopUp: "Alt"
 				}, function(response) {
+          console.log(response)
 					if (response.ContentsShowAlt == true) {
 						$("#Switch_Alt").addClass("close");
 					} else {
@@ -75,6 +76,7 @@ class Int {
 				chrome.tabs.sendMessage(tab[0].id, {
 					fromPopUp: "Meta"
 				}, function(response) {
+          console.log(response)
 					if (response.ContentsShowMeta == true) {
 						$("#Switch_Title").addClass("close");
 					} else {
