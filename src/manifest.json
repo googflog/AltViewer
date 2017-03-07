@@ -28,6 +28,6 @@
         "all_frames": false
       }
     ],
-    "permissions": ["tabs"],
+    "permissions": ["tabs","storage"],
     "web_accessible_resources": ["images/close.svg","images/close_w.svg","images/arrow.svg"]
 }

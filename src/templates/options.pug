@@ -10,24 +10,36 @@ html
   form
 
    label(for="alt_checkbox")
-    input(type="checkbox" id="alt_checkbox" value="1" checked="checked" )
+    input(type="checkbox" id="alt_checkbox" value="true" checked="checked" )
     | Alt
    br
    label(for="title_checkbox")
-    input(type="checkbox" id="alt_checkbox" value="1" checked="checked")
+    input(type="checkbox" id="title_checkbox" value="true" checked="checked")
     | Title
    br
    label(for="size_checkbox")
-    input(type="checkbox" id="size_checkbox" value="1" checked="checked")
+    input(type="checkbox" id="size_checkbox" value="true" checked="checked")
     | 画像サイズ
    br
    label(for="path_checkbox")
-    input(type="checkbox" id="path_checkbox" value="1" checked="checked")
+    input(type="checkbox" id="path_checkbox" value="true" checked="")
     | 画像パス
    br
    label(for="extension_checkbox")
-    input(type="checkbox" id="extension_checkbox" value="1" checked="checked")
+    input(type="checkbox" id="extension_checkbox" value="true" checked="")
     | 拡張子
+   br
+   label(for="console_checkbox")
+    input(type="checkbox" id="console_checkbox" value="true" checked="checked")
+    | Console出力
+   br
+   label(for="noAltList_checkbox")
+    input(type="checkbox" id="noAltList_checkbox" value="true" checked="checked")
+    | Altなし一覧
+   br
+   label(for="altFukidashiClose_checkbox")
+    input(type="checkbox" id="altFukidashiClose_checkbox" value="true" checked="checked")
+    | Alt吹き出し閉じるボタン
    br
   //- input(id="save" type="button" value="保存")
 
