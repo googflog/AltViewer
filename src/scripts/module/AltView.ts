@@ -6,27 +6,56 @@ module AltViewModule {
 		ObjAltViewBlock: any = {};
 		ObjAltViewContent: any = {};
 		AltTitleView_012345: any = {};
+		checkbox: any = {};
 		Alt_Fukidashi_txt: string;
+
 		alt_nashi: number = 0;
 		title_nashi: number = 0;
 		constructor() {
 			super();
+			//ローカライズ化
+			var this_ = this;
+			this.Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
+
+
+			
+			var defaults = {
+				alt_checkbox: true,
+				title_checkbox: true,
+				size_checkbox: true,
+				path_checkbox: true,
+				extension_checkbox: true,
+				console_checkbox: true,
+				noAltList_checkbox: true,
+				altFukidashiClose_checkbox: true
+			};
+			chrome.storage.sync.get(
+				defaults,
+				function(items) {
+					this_.checkbox = items;
+				});
+
 		}
 
 		show() {
-
 			var this_ = this;
 
-			//ローカライズ化
-			this.Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
-
+			this.showMove();
+		}
+		showMove() {
 			var this_ = this;
+			var checkbox = this.checkbox;
+
+			console.log("checkbox:", checkbox)
+
 			this.dispatchEvent(new events.Event("show", true));
 
 			//ツールチップの表示エリアを追加する
+			this.ObjAltViewBlock = null;
 			this.ObjAltViewBlock = $("<div id='AltView_012345'></div>");
 			$("body").append(this.ObjAltViewBlock);
 
+			this.ObjAltViewContent = null;
 			this.ObjAltViewContent = $("<div id='AltView_wrap'></div>");
 			this.ObjAltViewBlock.append(this.ObjAltViewContent);
 
@@ -51,23 +80,32 @@ module AltViewModule {
 				var TipData = "";
 
 				//alt と title
-				TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], true, true);
+				if (checkbox.alt_checkbox && checkbox.title_checkbox) {
+					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], true, true);
+				} else if (checkbox.alt_checkbox) {
+					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], true, false);
+				} else if (checkbox.title_checkbox) {
+					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], false, true);
+				}
+
 
 				//閉じるボタン
 				TipData += this.addCloseBtn(this.AltTitleView_012345.AltData[i]);
 
 				//ImgSize
-				TipData += this.addImgSize(this.AltTitleView_012345.AltData[i]);
-
-				//Naturalサイズと違う場合表示
-				TipData += this.addImgNaturalSize(this.AltTitleView_012345.AltData[i]);
-
+				if (checkbox.size_checkbox) {
+					TipData += this.addImgSize(this.AltTitleView_012345.AltData[i]);
+					//Naturalサイズと違う場合表示
+					TipData += this.addImgNaturalSize(this.AltTitleView_012345.AltData[i]);
+				}
 				//
-				TipData += this.addImgSrc(this.AltTitleView_012345.AltData[i]);
-
+				if (checkbox.path_checkbox) {
+					TipData += this.addImgSrc(this.AltTitleView_012345.AltData[i]);
+				}
 				//
-				TipData += this.addImgExtension(this.AltTitleView_012345.AltData[i]);
-
+				if (checkbox.extension_checkbox) {
+					TipData += this.addImgExtension(this.AltTitleView_012345.AltData[i]);
+				}
 				//ツールチップを表示エリアに追加する
 				var tipObj: any = this.addTooltip(this.AltTitleView_012345.AltData[i], TipData)
 				$("#AltView_wrap").append(tipObj);
@@ -97,7 +135,8 @@ module AltViewModule {
 				$("#AltView_wrap div.Tip").show();
 			})
 
-			$("#AltView_wrap div.Tip .closeBtn").on("click", function() {
+
+			$("#AltView_wrap div.Tip .closeBtn").on("click.Tip", function() {
 				var thisObj = $(this);
 				var id = thisObj.attr("data");
 				var imgObj = this_.AltTitleView_012345.AltData[id].img_path
@@ -107,19 +146,23 @@ module AltViewModule {
 
 				$("#alt_view_tip_" + id).remove();
 				// delete this_.AltTitleView_012345.AltData[id];
-
+				$(this).off("click.Tip");
 				$("#AltView_wrap div.Tip").show();
 			})
+
 
 			//Alt数
 			this.noAltCount(this.AltTitleView_012345.AltData);
 
 			//Alt無しの数をconsoleに表示
-			this.noAltShowConsoleLog();
-			this.noTitleShowConsoleLog();
+			if (checkbox.console_checkbox) {
+				this.noAltShowConsoleLog();
+				this.noTitleShowConsoleLog();
+			}
 
 			//Alt無しリスト
-			this.addNoAltList();
+			this.addNoAltList(checkbox.noAltList_checkbox, checkbox.altFukidashiClose_checkbox);
+
 
 			//
 			this.fResizeTitleView();
@@ -304,7 +347,7 @@ module AltViewModule {
 
 
 		//
-		addNoAltList(): void {
+		addNoAltList(altlistbtn: boolean, closebtn: boolean): void {
 			var this_ = this;
 			if (0 < this.alt_nashi) {
 				$("html").prepend(
@@ -317,6 +360,12 @@ module AltViewModule {
 					"<img class='arrow' src='" + chrome.runtime.getURL("images/arrow.svg") + "' alt='' width='35'>" +
 					"<p>Altなし <span>" + this_.alt_nashi + "</span> 個</p></div>" +
 					"</div>")
+				if (!altlistbtn) {
+					$("#AltView_NoAlt_head_closebtn").remove();
+				}
+				if (!closebtn) {
+					$("#AltView_NoAlt_head_closeAltBtn").remove();
+				}
 				for (var i = 0; i < this.AltTitleView_012345.AltData.length; i++) {
 					if (!this.AltTitleView_012345.AltData[i].alt) {
 						this.addNoAltListObj(this.AltTitleView_012345.AltData[i])
@@ -490,6 +539,7 @@ module AltViewModule {
 
 		close() {
 			if (0 < $("#AltView_012345").length) {
+				$("#AltView_wrap div.Tip .closeBtn").off("click.Tip");
 				//ツールチップエリアを削除する
 				$("#AltView_012345").remove();
 				$("#AltView_NoAlt_Wrap").remove();
@@ -530,8 +580,6 @@ module AltViewModule {
 		}
 
 	}
-
-
 
 
 
