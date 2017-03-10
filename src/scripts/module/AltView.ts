@@ -17,8 +17,19 @@ module AltViewModule {
 			var this_ = this;
 			this.Alt_Fukidashi_txt = chrome.i18n.getMessage("Alt_Fukidashi_txt");
 
+			this.getOptions();
+		}
 
-			
+		show = () => {
+			var this_ = this;
+
+			this.getOptions();
+			this.showMove();
+
+		}
+
+		getOptions = () => {
+			var this_ = this;
 			var defaults = {
 				alt_checkbox: true,
 				title_checkbox: true,
@@ -34,19 +45,13 @@ module AltViewModule {
 				function(items) {
 					this_.checkbox = items;
 				});
-
 		}
 
-		show() {
+
+		showMove = () => {
 			var this_ = this;
 
-			this.showMove();
-		}
-		showMove() {
-			var this_ = this;
 			var checkbox = this.checkbox;
-
-			console.log("checkbox:", checkbox)
 
 			this.dispatchEvent(new events.Event("show", true));
 
@@ -69,8 +74,6 @@ module AltViewModule {
 				this_.AltTitleView_012345.AltData.push(obj);
 			});
 
-			console.log(this_.AltTitleView_012345)
-
 			//Alt無しの数
 			this.noAltCount(this.AltTitleView_012345.AltData);
 
@@ -79,6 +82,9 @@ module AltViewModule {
 
 				var TipData = "";
 
+				//閉じるボタン
+				TipData += this.addCloseBtn(this.AltTitleView_012345.AltData[i]);
+				
 				//alt と title
 				if (checkbox.alt_checkbox && checkbox.title_checkbox) {
 					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], true, true);
@@ -88,27 +94,30 @@ module AltViewModule {
 					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], false, true);
 				}
 
-
-				//閉じるボタン
-				TipData += this.addCloseBtn(this.AltTitleView_012345.AltData[i]);
-
 				//ImgSize
 				if (checkbox.size_checkbox) {
 					TipData += this.addImgSize(this.AltTitleView_012345.AltData[i]);
 					//Naturalサイズと違う場合表示
 					TipData += this.addImgNaturalSize(this.AltTitleView_012345.AltData[i]);
 				}
-				//
+				//画像パス
 				if (checkbox.path_checkbox) {
 					TipData += this.addImgSrc(this.AltTitleView_012345.AltData[i]);
 				}
-				//
+				//拡張子
 				if (checkbox.extension_checkbox) {
 					TipData += this.addImgExtension(this.AltTitleView_012345.AltData[i]);
 				}
 				//ツールチップを表示エリアに追加する
 				var tipObj: any = this.addTooltip(this.AltTitleView_012345.AltData[i], TipData)
-				$("#AltView_wrap").append(tipObj);
+				// 表示情報が無い場合吹き出しださない
+				if (checkbox.alt_checkbox || checkbox.title_checkbox || checkbox.size_checkbox || checkbox.path_checkbox || checkbox.extension_checkbox) {
+					$("#AltView_wrap").append(tipObj);
+				}
+
+				// if (checkbox.extension_checkbox || checkbox.extension_checkbox) {
+				// 	$("#AltView_wrap .Tip .txt").addClass("longtxt")
+				// }
 
 			}
 
@@ -188,10 +197,13 @@ module AltViewModule {
 			var Tip = $("<div id='alt_view_tip_" + data.id + "' class='Tip Tip-" + data.id + "' data='" + data.id + "'><div class='txt'>" + tipData + "</div></div>");
 
 			//
-			if (data.width != data.naturalW) {
+
+
+
+			if (data.width != data.width_natural && data.width_attr != data.width_natural) {
 				Tip.find(".w").removeClass("set").addClass("noset");
 			}
-			if (data.height != data.naturalH) {
+			if (data.height != data.height_natural && data.height_attr != data.height_natural) {
 				Tip.find(".h").removeClass("set").addClass("noset");
 			}
 
@@ -201,7 +213,7 @@ module AltViewModule {
 			}
 
 			//Tipの位置を設定
-			Tip.css({ "top": data.top, "left": data.left, "max-width": data.width, "display": "none" })
+			Tip.css({ "top": data.top, "left": data.left, "max-width": data.width < 200 ? 200 : data.width, "display": "none" })
 
 			//吹き出しの位置を設定
 			Tip.find(".fuki").css("margin-left", 10);
@@ -216,56 +228,29 @@ module AltViewModule {
 
 			var _tipData: string = "";
 
-			if (showAlt && showTitle) {
-				//alt と title 両方とも設定されていた
-				if (data.alt && data.title) {
-					//AltとTitleが同じがチェック
-					if (data.alt == data.title) {
-						//同じ
-						_tipData += "<span class='wk'>Alt,Title: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>";
-					} else {
-						//違う
-						_tipData += "<span class='wk'>Alt: [</span><span class='at noset'>" + data.alt + "</span><span class='wk'>]</span>";
-						_tipData += "<br /><span class='wk'>Title: [</span><span class='at noset'>" + data.title + "</span><span class='wk'>]</span>";
-					}
+			//AltとTitle
+			if (showAlt) {
+				if (data.alt) {
+					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at'>" + data.alt + "</span></div></div>"
 				} else {
-					//alt
-					if (data.alt) {
-						_tipData += "<span class='wk'>Alt: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>"
-					} else {
-						_tipData += "<span class='wk'>Alt: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
-					}
-
-					//title
-					if (data.title) {
-						_tipData += "<br /><span class='wk'>Title: [</span><span class='at set'>" + data.title + "</span><span class='wk'>]</span>"
-					} else {
-						_tipData += "<br /><span class='wk'>Title: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
-					}
-				}
-			} else {
-				if (showAlt) {
-					if (data.alt) {
-						_tipData += "<span class='wk'>Alt: [</span><span class='at set'>" + data.alt + "</span><span class='wk'>]</span>"
-					} else {
-						_tipData += "<span class='wk'>Alt: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
-					}
-				}
-				if (showTitle) {
-					if (data.title) {
-						if (showAlt) _tipData += "<br />";
-						_tipData += "<span class='wk'>Title: [</span><span class='at set'>" + data.title + "</span><span class='wk'>]</span>"
-					} else {
-						_tipData += "<span class='wk'>Title: [</span>" + "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='wk'>]</span>"
-					}
+					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
 				}
 			}
+
+			if (showTitle) {
+				if (data.title) {
+					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at'>" + data.title + "</span></div></div>"
+				} else {
+					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
+				}
+			}
+
 			return _tipData
 		}
 
 		//閉じるボタン
 		addCloseBtn(data: any) {
-			return '<div class="closeBtn" data="' + data.id + '"><img src="' + chrome.runtime.getURL("images/close.svg") + '" alt="CloseBtn" width="10"></div>'
+			return '<div class="closeBtn" data="' + data.id + '"><img src="' + chrome.runtime.getURL("images/close.svg") + '" alt="CloseBtn" width="8"></div>'
 		}
 
 
@@ -274,51 +259,58 @@ module AltViewModule {
 		//画像サイズを追加
 		addImgSize(data: any): string {
 
-			var _tipData: string = "";
+			var _tipData: string = "<div class='txt__line'>" + "<span class='txt__lineHead'>ImgSize</span><div class='txt__lineBody'>";
 			if (data.width_attr && data.height_attr) {
 				//画像サイズが設定されている
-				_tipData += "<br />ImgSize: [<span class='set'><span class='set w'>" + data.width_attr + "</span> x <span class='set h'>" + data.height_attr + "</span> px</span>]"
+				_tipData += "<span class='at w'>" + data.width_attr + "</span><span class='x'>x</span><span class='at h'>" + data.height_attr + "</span><span class='px'>px</span>"
+
 			} else {
 				//画像サイズが設定されていない場合
 				if (!data.width_attr && !data.height_attr) {
-					_tipData += "<br />ImgSize: [<span class='set'><span class='noset'>" + this.Alt_Fukidashi_txt + "</span></span>]";
+					_tipData += "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>"
 				} else {
 					if (data.width_attr) {
-						_tipData += "<br />ImgSize: [<span class='set'><span class='set w'>" + data.width_attr + "</span> x ";
+						_tipData += "<span class='at w'>" + data.width_attr + "</span><span class='x'>x</span>";
 					} else {
-						_tipData += "<br />ImgSize: [<span class='set'><span class='noset'>" + this.Alt_Fukidashi_txt + "</span>" + " x ";
+						_tipData += "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span><span class='x'>x</span>";
 					}
 					if (data.height_attr) {
-						_tipData += "<span class='set h'>" + data.height_attr + "</span> px</span>]";
+						_tipData += "<span class='at h'>" + data.height_attr + "</span><span class='px'>px</span>";
 					} else {
-						_tipData += "<span class='noset'>" + this.Alt_Fukidashi_txt + "</span></span>]";
+						_tipData += "<span class='at noset'>" + this.Alt_Fukidashi_txt + "</span>";
 					}
 				}
 			}
+			_tipData += "</div></div>"
 			return _tipData;
 		}
 
 		//ナチュラルサイズを追加
 		addImgNaturalSize(data: any): string {
-			var _tipData: string = "";
+			var _tipData: string = "<div class='txt__line'>" + "<span class='txt__lineHead'>Natural</span><div class='txt__lineBody'>";
 			if (data.width != data.width_natural || data.height != data.height_natural) {
-				_tipData = "<br />Natural: [<span class='set'>" + data.width_natural + " x " + data.height_natural + " px</span>]"
+				_tipData += "<span class='set'>" + data.width_natural + "</span><span class='x'>x</span><span class='set'>" + data.height_natural + "</span><span class='px'>px</span></div></div>"
+				return _tipData;
+			} else {
+				return ""
 			}
-			return _tipData;
+
 		}
 
 		//画像パス
 		addImgSrc(data: any): string {
-			return "<br />Src: [<span class='set'><a href='" + data.src + "' target='_blank'>" + data.src + "</a></span>]"
+			var _tipData: string = "<div class='txt__line'>" + "<span class='txt__lineHead'>Src</span><div class='txt__lineBody'>";
+			_tipData += "<a href='" + data.src + "' target='_blank'>" + data.src + "</a></span></div></div>";
+			return _tipData
 		}
 
 		//拡張子
 		addImgExtension(data: any): string {
-			var _tipData: string = "";
+			var _tipData: string = "<div class='txt__line'>" + "<span class='txt__lineHead'>Extension</span><div class='txt__lineBody'>";
 			if (data.extension) {
-				_tipData = "<br />Extension: [<span class='set'>" + data.extension + "</span>]";
+				_tipData += "<span class='exten'>" + data.extension + "</span></div></div>";
 			} else {
-				_tipData = "<br />Extension: [<span class='set'>" + this.Alt_Fukidashi_txt + "</span>]";
+				_tipData += "<span class='noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>";
 			}
 			return _tipData;
 		}
@@ -420,10 +412,15 @@ module AltViewModule {
 
 			//画像拡張子
 			var extension: string = null;
-			var f = src.split('.');
-			if (1 < f.length) {
-				extension = f[f.length - 1].toLowerCase();
+
+			console.log("jpg", src.indexOf('jpg'))
+			if (src.indexOf('.jpg') != -1 || src.indexOf('.jpeg') != -1 || src.indexOf('.bmp') != -1 || src.indexOf('.gif') != -1 || src.indexOf('.png') != -1 || src.indexOf('.svg') != -1 || src.indexOf('.tiff') != -1) {
+				var f = src.split('.');
+				if (1 < f.length) {
+					extension = f[f.length - 1].toLowerCase();
+				}
 			}
+
 
 			//Alt
 			var alt: string = null;

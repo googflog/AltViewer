@@ -23,10 +23,12 @@ html body img.AltView_012345_Tip_show {
 	transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
 	// transform: translateY(-100px);
 	margin-top: -160px;
-	&.load{
+
+	&.load {
 		margin-top: -230px;
 	}
-	&.active{
+
+	&.active {
 		margin-top: 0;
 	}
 
@@ -58,30 +60,34 @@ html body img.AltView_012345_Tip_show {
 		display: table;
 		height: 35px;
 		box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
-		p{
+
+		p {
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
-			padding: 0px 1.05em 0px 0.5em
+			padding: 0 1.05em 0 0.5em;
 		}
-		&:hover{
+
+		&:hover {
 			background: #f87a00;
 		}
+
 		span {
 			font-size: 14px;
 		}
-		.arrow{
+
+		.arrow {
 			transition: all 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0.3s;
 		}
 	}
-	&.active{
-		#AltView_NoAlt_head_closebtn{
-			.arrow{
+
+	&.active {
+		#AltView_NoAlt_head_closebtn {
+			.arrow {
 				transform: scaleY(-1);
 			}
 		}
 	}
-
 
 	#AltView_NoAlt_head_closeAltBtn {
 		float: right;
@@ -92,12 +98,14 @@ html body img.AltView_012345_Tip_show {
 		box-shadow: rgba(0, 0, 0, 0.3) 1px 1px 10px;
 		background: #eb6100;
 		margin-right: 17.5px;
-		&:hover{
+
+		&:hover {
 			background: #f87a00;
 		}
 	}
-	&.active{
-		#AltView_NoAlt_head_closeAltBtn{
+
+	&.active {
+		#AltView_NoAlt_head_closeAltBtn {
 			transform: scale(0);
 		}
 	}
@@ -123,23 +131,18 @@ html body img.AltView_012345_Tip_show {
 
 	.Tip {
 		position: absolute;
-
 		.txt {
 			position: relative;
 
-			span {
-				margin: 0 0.5em;
-			}
-
 			.closeBtn {
 				position: absolute;
-				right: -10px;
-				top: -10px;
+				right: -8px;
+				top: -8px;
 				padding: 6px;
 				box-sizing: content-box;
 				background: white;
-				width: 10px;
-				height: 10px;
+				width: 8px;
+				height: 8px;
 				line-height: 0;
 				vertical-align: middle;
 				text-align: center;
@@ -165,37 +168,93 @@ html body img.AltView_012345_Tip_show {
 				}
 			}
 
-			.noset {
-				color: #f89406;
-			}
-			.at{
-				display: table-cell;
-			}
-			.wk{
-				display: table-cell;
-				vertical-align: top;
-			}
-			.set {
+			.txt__line {
+				* {
+					line-height: 1.4em;
+				}
+				// display: flex;
+				display: table;
+
+				span {
+					// display: table-cell;
+					padding: 0 0.5em;
+				}
+
+				a {
+					// display: table-cell;
+					padding: 0;
+					word-break: break-all;
+					color: #b0b0b0;
+
+					&:hover {
+						color: #9cc6ff;
+					}
+				}
+
+				.exten {
+					word-break: break-all;
+					color: #b0b0b0;
+					padding: 0;
+				}
+
+				.set {
+					padding: 0;
+				}
+				.x{
+				}
+				.px {
+					padding: 0 0 0 0.5em;
+				}
+
+				.at {
+					word-break: break-all;
+					padding: 0;
+				}
 				color: white;
 				font-weight: normal;
+
+				.noset {
+					padding: 0;
+					color: #f89406;
+				}
+				margin-bottom: 0.2em;
+
+				&Head {
+					// display: table-cell;
+					// display: block;
+					display: table-cell;
+					margin: 0;
+					border-right: 1px solid;
+					width: 5em;
+					color: #b0b0b0;
+					padding-right: 0.5em;
+				}
+
+				&Body {
+					display: table-cell;
+					padding: 0 0.5em;
+				}
 			}
 			// white-space: nowrap;
-			word-break: break-all;
 			text-align: left;
 			font-size: 11px;
-			line-height: 14px;
+			// line-height: 14px;
 			text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
 			font-family: sans-serif;
 			color: #fff;
 			cursor: auto;
 			background: #333;
 			padding: 8px 8px 7px;
-			box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+			// box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
+			box-shadow: 0 0 0 1px rgba(255,255,255,0.2),1px 1px 10px rgba(0, 0, 0, 0.5);
 			border-radius: 0;
 			opacity: 0.9;
-			min-width: 150px;
+			min-width: 160px;
 			word-wrap: break-word;
 			color: #b0b0b0;
+			// .longtxt{
+			// 	min-width: 180px;
+			// }
 		}
 	}
 }
@@ -213,6 +272,8 @@ html body img.AltView_012345_Tip_show {
 }
 
 #AltView_wrap div.Tip .fuki-top {
+	position: relative;
+	z-index: 1;
 	margin-left: 10px;
 	height: 0;
 	width: 0;
