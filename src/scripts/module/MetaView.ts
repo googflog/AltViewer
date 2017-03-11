@@ -5,6 +5,7 @@ module MetaViewModule {
 
 
     export class MetaView extends events.EventDispatcher {
+        ObjMetaViewWrapBlock: object;
         ObjMetaViewBlock: object;
         ObjMetaViewContent: object;
 
@@ -18,8 +19,11 @@ module MetaViewModule {
             $("html").addClass('TitleView_012345_show')
 
             //Metaの表示エリアを追加する
-            this.ObjMetaViewBlock = $("<div id='TitleView_012345' class='TitleView012345_Box'></div>");
-            $("body").append(this.ObjMetaViewBlock);
+            this.ObjMetaViewWrapBlock = $("<div id='TitleView_012345' class='TitleView012345_Box'></div>");
+            $("body").append(this.ObjMetaViewWrapBlock);
+
+            this.ObjMetaViewBlock = $("<div class='TitleView012345_Objs'></div>");
+            $(this.ObjMetaViewWrapBlock).append(this.ObjMetaViewBlock);
 
             this.ObjMetaViewContent = $("<div id='TitleView_Contents_012345' class='TitleView012345_Contents'></div>");
             this.ObjMetaViewBlock.append(this.ObjMetaViewContent);
@@ -69,15 +73,15 @@ module MetaViewModule {
             })
 
             //閉じるボタン
-            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345' class='TitleView012345_CloseBtn'>× CLOSE</div>");
-            this.ObjMetaViewBlock.prepend("<div id='TitleView_closebtn_head_012345' class='TitleView012345_HeadCloseBtn'>×</div>");
+            this.ObjMetaViewBlock.prepend("<div id='TitleView_closebtn_head_012345' class='TitleView012345_HeadCloseBtn'><img src='"+chrome.runtime.getURL("images/close_w.svg")+"' width='45'></div>");
+            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345' class='TitleView012345_CloseBtn'><img src='"+chrome.runtime.getURL("images/close_w.svg")+"' width='45'><div> CLOSE</div></div>");
 
             //Meta一覧表示
             var titleview_012345_time: number;
-            this.ObjMetaViewBlock.css({ "top": -this.ObjMetaViewBlock.height() - 100 });
-            this.ObjMetaViewBlock.addClass("transition_mode");
+            this.ObjMetaViewWrapBlock.css({ "top": -this.ObjMetaViewWrapBlock.outerHeight() - 100 });
+            this.ObjMetaViewWrapBlock.addClass("transition_mode");
             titleview_012345_time = setTimeout(function() {
-                this_.ObjMetaViewBlock.css({ "top": 0 }).one('webkitTransitionEnd', function() {
+                this_.ObjMetaViewWrapBlock.css({ "top": 0 }).one('webkitTransitionEnd', function() {
                     $(this).addClass("active");
                     $("#TitleView_closebtn_head_012345, #TitleView_closebtn_012345").addClass("active");
                 });
@@ -92,7 +96,7 @@ module MetaViewModule {
             });
 
             //バブリング停止
-            this.ObjMetaViewBlock.on("click", function(e) {
+            this.ObjMetaViewWrapBlock.on("click", function(e) {
                 e.stopPropagation();
             });
 
@@ -110,20 +114,20 @@ module MetaViewModule {
 
         //リサイズ
         fResizeTitleView() {
-            if ($(window).height() < this.ObjMetaViewContent.height() + $("#TitleView_closebtn_012345").height()) {
-                this.ObjMetaViewBlock.height($(window).height());
-            } else {
-                this.ObjMetaViewBlock.height(this.ObjMetaViewContent.height() + $("#TitleView_closebtn_012345").height() + 150);
-            };
+            // if ($(window).height() < this.ObjMetaViewContent.outerHeight() + $("#TitleView_closebtn_012345").height()) {
+            //     this.ObjMetaViewWrapBlock.height($(window).height());
+            // } else {
+            //     this.ObjMetaViewWrapBlock.height(this.ObjMetaViewContent.height() + $("#TitleView_closebtn_012345").height() + 150);
+            // };
         }
 
         //
 		close() {
 			var this_ = this;
-			if (this.ObjMetaViewBlock.hasClass("active")) {
+			if (this.ObjMetaViewWrapBlock.hasClass("active")) {
 				this.dispatchEvent(new events.Event("show", false));
-				this.ObjMetaViewBlock.css({ top: -this.ObjMetaViewBlock.height() - 20 }).one('webkitTransitionEnd', function() {
-					this_.ObjMetaViewBlock.remove();
+				this.ObjMetaViewWrapBlock.css({ top: -this.ObjMetaViewWrapBlock.height() - 20 }).one('webkitTransitionEnd', function() {
+					this_.ObjMetaViewWrapBlock.remove();
 					$(window).off('resize.TitleView_012345');
 					$("html").removeClass('TitleView_012345_show');
 				});

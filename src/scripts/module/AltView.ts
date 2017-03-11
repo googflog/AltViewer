@@ -84,7 +84,7 @@ module AltViewModule {
 
 				//閉じるボタン
 				TipData += this.addCloseBtn(this.AltTitleView_012345.AltData[i]);
-				
+
 				//alt と title
 				if (checkbox.alt_checkbox && checkbox.title_checkbox) {
 					TipData += this.addAltTitle(this.AltTitleView_012345.AltData[i], true, true);
@@ -310,7 +310,7 @@ module AltViewModule {
 			if (data.extension) {
 				_tipData += "<span class='exten'>" + data.extension + "</span></div></div>";
 			} else {
-				_tipData += "<span class='noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>";
+				_tipData += "<span class='noset'> ? </span></div></div>";
 			}
 			return _tipData;
 		}
@@ -413,8 +413,9 @@ module AltViewModule {
 			//画像拡張子
 			var extension: string = null;
 
-			console.log("jpg", src.indexOf('jpg'))
-			if (src.indexOf('.jpg') != -1 || src.indexOf('.jpeg') != -1 || src.indexOf('.bmp') != -1 || src.indexOf('.gif') != -1 || src.indexOf('.png') != -1 || src.indexOf('.svg') != -1 || src.indexOf('.tiff') != -1) {
+			// var fileType = this.getImageFileType(element);
+			// console.log("type",fileType)
+			if (src.indexOf('.webp') != -1 || src.indexOf('.jpg') != -1 || src.indexOf('.jpeg') != -1 || src.indexOf('.bmp') != -1 || src.indexOf('.gif') != -1 || src.indexOf('.png') != -1 || src.indexOf('.svg') != -1 || src.indexOf('.tiff') != -1) {
 				var f = src.split('.');
 				if (1 < f.length) {
 					extension = f[f.length - 1].toLowerCase();
@@ -529,9 +530,29 @@ module AltViewModule {
 					}
 				});
 			}, 300);
-
-
 		}
+
+		// getImageFileType(arrayBuffer) {
+		// 	var ba = new Uint8Array(arrayBuffer);
+		// 	var headerStr = "";
+		// 	var headerHex = "";
+		// 	for (var i = 0; i < 10; i++) { // 始めの10個分を読む
+		// 		headerHex += ba[i].toString(16); // 16進文字列で読む
+		// 		headerStr += String.fromCharCode(ba[i]); // 文字列で読む
+		// 	}
+		// 	var fileType = "unknown";
+		// 	if (headerHex.indexOf("ffd8") != -1) { // JPGはヘッダーに「ffd8」を含む
+		// 		fileType = "JPG";
+		// 	} else if (headerStr.indexOf("PNG") != -1) { // PNGはヘッダーに「PNG」を含む
+		// 		fileType = "PNG";
+		// 	} else if (headerStr.indexOf("GIF") != -1) { // GIFはヘッダーに「GIF」を含む
+		// 		fileType = "GIF";
+		// 	} else if (headerStr.indexOf("BM") != -1) { // BMPはヘッダーに「BM」を含む
+		// 		fileType = "BMP";
+		// 	}
+		// 	console.log("fileType=" + fileType + " headerStr=" + headerStr + " headerHex=" + headerHex);
+		// 	return fileType;
+		// }
 
 
 		close() {
