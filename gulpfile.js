@@ -37,28 +37,40 @@ gulp.task('sass', function() {
         gulp.src('./src/stylesheets/**/*.scss')
             .pipe(plumber())
             .pipe(sass({
-                style: 'compressed'
+                outputStyle: 'compressed'
             }))
             .pipe(gulp.dest('./' + target + '/assets/css'));
     }
 });
 
 gulp.task('ts', () => {
-    var ts_array = ['popup', 'background', 'contentscript','option'];
+    var ts_array = ['popup', 'background', 'contentscript', 'option'];
 
     for (var value of ts_array) {
-
-        gulp.src('./src/scripts/**/' + value + '.ts')
-            .pipe(sourcemaps.init())
-            .pipe(plumber())
-            .pipe(typescript({
-                target: 'ES5',
-                removeComments: true,
-                out: value + '.js'
-            }))
-            .js
-            .pipe(sourcemaps.write())
-            .pipe(gulp.dest('./' + target + '/assets/js'));
+        if (target == "dev") {
+            gulp.src('./src/scripts/**/' + value + '.ts')
+                .pipe(sourcemaps.init())
+                .pipe(plumber())
+                .pipe(typescript({
+                    target: 'ES5',
+                    removeComments: false,
+                    out: value + '.js'
+                }))
+                .js
+                .pipe(sourcemaps.write())
+                .pipe(gulp.dest('./' + target + '/assets/js'));
+        }else {
+          gulp.src('./src/scripts/**/' + value + '.ts')
+              .pipe(sourcemaps.init())
+              .pipe(plumber())
+              .pipe(typescript({
+                  target: 'ES5',
+                  removeComments: true,
+                  out: value + '.js'
+              }))
+              .js
+              .pipe(gulp.dest('./' + target + '/assets/js'));
+        }
     }
 
 });

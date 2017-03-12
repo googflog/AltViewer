@@ -12,7 +12,7 @@ class PopUp {
         this.standby = true;
         this.pop_ready_check.addEventListener("ready", function() {
             if (this_.standby) {
-                console.log("Ready!");
+                // console.log("Ready!");
                 this_.standby = false;
                 $(document).ready(() => {
                     this_.int.int();
@@ -29,11 +29,11 @@ class Int {
 		$("#Loading").fadeOut(200);
 		// 選択されているタブに情報を送る
 		chrome.tabs.query({ active: true, currentWindow: true }, function(tab) {
-			console.log(tab[0])
+			// console.log(tab[0])
 			chrome.tabs.sendMessage(tab[0].id, {
 				fromPopUp: "Open!"
 			}, function(response) {
-				console.log("@", response)
+				// console.log("@", response)
 				//ボタン表示切り替え
 				//Alt表示モードの場合
 				if (response.ContentsShowAlt) {
@@ -61,7 +61,7 @@ class Int {
 				chrome.tabs.sendMessage(tab[0].id, {
 					fromPopUp: "Alt"
 				}, function(response) {
-          console.log(response)
+          // console.log(response)
 					if (response.ContentsShowAlt == true) {
 						$("#Switch_Alt").addClass("close");
 					} else {
@@ -76,7 +76,7 @@ class Int {
 				chrome.tabs.sendMessage(tab[0].id, {
 					fromPopUp: "Meta"
 				}, function(response) {
-          console.log(response)
+          // console.log(response)
 					if (response.ContentsShowMeta == true) {
 						$("#Switch_Title").addClass("close");
 					} else {

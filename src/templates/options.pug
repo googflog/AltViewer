@@ -6,42 +6,52 @@ html
   link(rel="stylesheet" type="text/css" href="assets/css/option.css" media="all")
 
  body
-  h1 Alt &amp; Meta Viewer
-  form
+  .option
+   h1 Alt &amp; Meta Viewer 
+    span.version ver.
+   form
 
-   label(for="alt_checkbox")
-    input(type="checkbox" id="alt_checkbox" value="true" checked="checked" )
-    | Alt
-   br
-   label(for="title_checkbox")
-    input(type="checkbox" id="title_checkbox" value="true" checked="checked")
-    | Title
-   br
-   label(for="size_checkbox")
-    input(type="checkbox" id="size_checkbox" value="true" checked="checked")
-    | 画像サイズ
-   br
-   label(for="path_checkbox")
-    input(type="checkbox" id="path_checkbox" value="true" checked="")
-    | 画像パス
-   br
-   label(for="extension_checkbox")
-    input(type="checkbox" id="extension_checkbox" value="true" checked="")
-    | 拡張子
-   br
-   label(for="console_checkbox")
-    input(type="checkbox" id="console_checkbox" value="true" checked="checked")
-    | Console出力
-   br
-   label(for="noAltList_checkbox")
-    input(type="checkbox" id="noAltList_checkbox" value="true" checked="checked")
-    | Altなし一覧
-   br
-   label(for="altFukidashiClose_checkbox")
-    input(type="checkbox" id="altFukidashiClose_checkbox" value="true" checked="checked")
-    | Alt吹き出し閉じるボタン
-   br
-  //- input(id="save" type="button" value="保存")
+    .checkboxBlock
+     input(type="checkbox" id="alt_checkbox" value="true" checked="checked" )
+     label(for="alt_checkbox")
+      | Alt
+
+    .checkboxBlock
+     input(type="checkbox" id="title_checkbox" value="true" checked="checked")
+     label(for="title_checkbox")
+      | Title
+
+    .checkboxBlock
+     input(type="checkbox" id="size_checkbox" value="true" checked="checked")
+     label(for="size_checkbox")
+      | 画像サイズ
+
+    .checkboxBlock
+     input(type="checkbox" id="path_checkbox" value="true" checked="")
+     label(for="path_checkbox")
+      | 画像パス
+
+    .checkboxBlock
+     input(type="checkbox" id="extension_checkbox" value="true" checked="")
+     label(for="extension_checkbox")
+      | 拡張子
+
+    .checkboxBlock
+     input(type="checkbox" id="console_checkbox" value="true" checked="checked")
+     label(for="console_checkbox")
+      | Console出力
+
+    .checkboxBlock
+     input(type="checkbox" id="noAltList_checkbox" value="true" checked="checked")
+     label(for="noAltList_checkbox")
+      | Altなし一覧
+
+    .checkboxBlock
+     input(type="checkbox" id="altFukidashiClose_checkbox" value="true" checked="checked")
+     label(for="altFukidashiClose_checkbox")
+      | Alt吹き出し閉じるボタン
+
+   //- input(id="save" type="button" value="保存")
 
   script(src="assets/js/jquery-1.11.1.min.js" type="text/javascript")
   script(src="assets/js/option.js" type="text/javascript")

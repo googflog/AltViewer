@@ -10,7 +10,7 @@ class ContentScript {
 
     constructor() {
         chrome.runtime.onMessage.addListener(function(anymessage, sender, sendResponse) {
-            console.log("ポップアップが開いてメッセージを受けた", anymessage);
+            // console.log("ポップアップが開いてメッセージを受けた", anymessage);
             if (anymessage.contetState == "AreYouReady?") {
                 sendResponse({
                     contetState: "OkGo!"

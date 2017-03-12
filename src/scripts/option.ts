@@ -9,6 +9,8 @@ class Options {
 		$("[type=checkbox]").on("change", function() {
 			this_.changeVal();
 		});
+
+		$(".version").append(chrome.runtime.getManifest().version);
 	}
 
 	getStorageVal(): void {
@@ -18,8 +20,8 @@ class Options {
 			alt_checkbox: true,
 			title_checkbox: true,
 			size_checkbox: true,
-			path_checkbox: true,
-			extension_checkbox: true,
+			path_checkbox: false,
+			extension_checkbox: false,
 			console_checkbox: true,
 			noAltList_checkbox: true,
 			altFukidashiClose_checkbox: true
@@ -27,7 +29,7 @@ class Options {
 		chrome.storage.sync.get(
 			defaults,
 			function(items) {
-				console.log(items);
+				// console.log(items);
 				for (var name in items) {
 					$("#" + name).prop("checked", items[name]);
 				}
@@ -45,7 +47,7 @@ class Options {
 			noAltList_checkbox: $("#noAltList_checkbox").prop("checked"),
 			altFukidashiClose_checkbox: $("#altFukidashiClose_checkbox").prop("checked")
 		};
-		console.log(formOptions);
+		// console.log(formOptions);
 		chrome.storage.sync.set(formOptions, function() { });
 	}
 }

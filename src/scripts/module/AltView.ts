@@ -34,8 +34,8 @@ module AltViewModule {
 				alt_checkbox: true,
 				title_checkbox: true,
 				size_checkbox: true,
-				path_checkbox: true,
-				extension_checkbox: true,
+				path_checkbox: false,
+				extension_checkbox: false,
 				console_checkbox: true,
 				noAltList_checkbox: true,
 				altFukidashiClose_checkbox: true
@@ -229,21 +229,27 @@ module AltViewModule {
 			var _tipData: string = "";
 
 			//AltとTitle
-			if (showAlt) {
-				if (data.alt) {
-					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at'>" + data.alt + "</span></div></div>"
-				} else {
-					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
+			if (showAlt && showTitle && data.alt == data.title && data.alt != null && data.title != null) {
+				_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt,Title</span><div class='txt__lineBody'><span class='at'>" + data.alt + "</span></div></div>"
+			} else {
+				if (showAlt) {
+					if (data.alt) {
+						_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at'>" + data.alt + "</span></div></div>"
+					} else {
+						_tipData += "<div class='txt__line'><span class='txt__lineHead'>Alt</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
+					}
+				}
+
+				if (showTitle) {
+					if (data.title) {
+						_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at'>" + data.title + "</span></div></div>"
+					} else {
+						_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
+					}
 				}
 			}
 
-			if (showTitle) {
-				if (data.title) {
-					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at'>" + data.title + "</span></div></div>"
-				} else {
-					_tipData += "<div class='txt__line'><span class='txt__lineHead'>Title</span><div class='txt__lineBody'><span class='at noset'>" + this.Alt_Fukidashi_txt + "</span></div></div>"
-				}
-			}
+
 
 			return _tipData
 		}
@@ -329,7 +335,8 @@ module AltViewModule {
 
 		//Altなしの数を console.log に表示
 		noAltShowConsoleLog(): void {
-			console.log("%cAlt & Meta viewer %cver " + chrome.runtime.getManifest().version, 'padding:0.3em 1em; background: #f87a00; color:white; font-size: 11px;', 'background: #ccc; padding:0.3em 0.5em; font-size: 11px;');
+			// console.log("%cAlt & Meta viewer %cver " + chrome.runtime.getManifest().version, 'padding:0.3em 1em; background: #f87a00; color:white; font-size: 11px;', 'background: #ccc; padding:0.3em 0.5em; font-size: 11px;');
+			console.log("%cAlt & Meta viewer", 'padding:0.3em 1em; background: #f87a00; color:white; font-size: 11px;');
 			console.log("Alt なし : %c" + this.alt_nashi + "%c 個", 'font-size: 10px; font-weight: bold;', '');
 		}
 		noTitleShowConsoleLog(): void {
@@ -586,7 +593,7 @@ module AltViewModule {
 			$("#AltView_wrap div.Tip").hide();
 
 			var id = path.attr("alt_view_tip");
-			console.log(id)
+			// console.log(id)
 			$("#alt_view_tip_" + id).show();
 
 			path.addClass('AltView_012345_Tip_show');
