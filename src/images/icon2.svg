@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="45" height="45" viewBox="0 0 45 45">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <path id="画像の_一覧_icon" data-name="画像の 一覧 icon" class="cls-1" d="M147,59h18v2H147V59Zm16,2h2V75h-2V61ZM147,73h18v3H147V73Zm0-12h2V75h-2V61Zm2,9,5-4,4,4,2-1,4,4v3l-15-1V70Zm10.25-7a2,2,0,1,1-2,2A2,2,0,0,1,159.25,63Z" transform="translate(-133.5 -45)"/>
+</svg>
