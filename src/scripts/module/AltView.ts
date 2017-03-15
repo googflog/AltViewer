@@ -106,7 +106,7 @@ module AltViewModule {
 				}
 				//拡張子
 				if (checkbox.extension_checkbox) {
-					TipData += this.addImgExtension(this.AltTitleView_012345.AltData[i]);
+					// TipData += this.addImgExtension(this.AltTitleView_012345.AltData[i]);
 				}
 				//ツールチップを表示エリアに追加する
 				var tipObj: any = this.addTooltip(this.AltTitleView_012345.AltData[i], TipData)
@@ -294,7 +294,7 @@ module AltViewModule {
 		//ナチュラルサイズを追加
 		addImgNaturalSize(data: any): string {
 			var _tipData: string = "<div class='txt__line'>" + "<span class='txt__lineHead'>Natural</span><div class='txt__lineBody'>";
-			if (data.width != data.width_natural || data.height != data.height_natural) {
+			if (data.width != data.width_natural || data.height != data.height_natural || (!data.width_attr && !data.height_attr)) {
 				_tipData += "<span class='set'>" + data.width_natural + "</span><span class='x'>x</span><span class='set'>" + data.height_natural + "</span><span class='px'>px</span></div></div>"
 				return _tipData;
 			} else {
@@ -382,7 +382,7 @@ module AltViewModule {
 		}
 
 		addNoAltListObj(obj: any): void {
-			var listobj = $("<li id='AltView_No_AltCount'><img src='" + obj.src + "' width='100'></li>");
+			var listobj = $("<li><div><img src='" + obj.src + "' width='100'></div></li>");
 
 			var top_ = obj.img_path.offset().top;
 			listobj.on("click", function() {
@@ -422,12 +422,12 @@ module AltViewModule {
 
 			// var fileType = this.getImageFileType(element);
 			// console.log("type",fileType)
-			if (src.indexOf('.webp') != -1 || src.indexOf('.jpg') != -1 || src.indexOf('.jpeg') != -1 || src.indexOf('.bmp') != -1 || src.indexOf('.gif') != -1 || src.indexOf('.png') != -1 || src.indexOf('.svg') != -1 || src.indexOf('.tiff') != -1) {
-				var f = src.split('.');
-				if (1 < f.length) {
-					extension = f[f.length - 1].toLowerCase();
-				}
-			}
+			// if (src.indexOf('.webp') != -1 || src.indexOf('.jpg') != -1 || src.indexOf('.jpeg') != -1 || src.indexOf('.bmp') != -1 || src.indexOf('.gif') != -1 || src.indexOf('.png') != -1 || src.indexOf('.svg') != -1 || src.indexOf('.tiff') != -1) {
+			// 	var f = src.split('.');
+			// 	if (1 < f.length) {
+			// 		extension = f[f.length - 1].toLowerCase();
+			// 	}
+			// }
 
 
 			//Alt
