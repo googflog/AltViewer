@@ -18,6 +18,30 @@
       "message": "This extension show alt and meta."
    },
    "extName": {
-      "message": "This extension show alt and meta."
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Image size"
+   },
+   "Option_LabelPath": {
+      "message": "Image path"
+   },
+   "Option_LabelExtension": {
+      "message": "Extension"
+   },
+   "Option_LabelConsole": {
+      "message": "Console output"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt nothing list"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bubble close button"
    }
 }

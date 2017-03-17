@@ -19,5 +19,29 @@
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "画像サイズ"
+   },
+   "Option_LabelPath": {
+      "message": "画像パス"
+   },
+   "Option_LabelExtension": {
+      "message": "拡張子"
+   },
+   "Option_LabelConsole": {
+      "message": "Console出力"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Altなし一覧"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt吹き出し閉じるボタン"
    }
 }

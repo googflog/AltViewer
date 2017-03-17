@@ -19,5 +19,29 @@
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Taille de l'image"
+   },
+   "Option_LabelPath": {
+      "message": "Chemin d'image"
+   },
+   "Option_LabelExtension": {
+      "message": "Extension"
+   },
+   "Option_LabelConsole": {
+      "message": "Console sortie"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Rien liste"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bouton de fermeture de bulle"
    }
 }

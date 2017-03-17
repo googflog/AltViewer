@@ -13,14 +13,14 @@ class Options {
 		$(".version").append(chrome.runtime.getManifest().version);
 
 		//ローカライズ化
-		// $("[for='alt_checkbox']").html(chrome.i18n.getMessage("Option_LabelAlt"));
-		// $("[for='title_checkbox']").html(chrome.i18n.getMessage("Option_LabelTitle"));
-		// $("[for='size_checkbox']").html(chrome.i18n.getMessage("Option_LabelSize"));
-		// $("[for='path_checkbox']").html(chrome.i18n.getMessage("Option_LabelPath"));
-		//// $("[for='extension_checkbox']").html(chrome.i18n.getMessage("Option_LabelExtension"));
-		// $("[for='console_checkbox']").html(chrome.i18n.getMessage("Option_LabelConsole"));
-		// $("[for='noAltList_checkbox']").html(chrome.i18n.getMessage("Option_LabelNoAltList"));
-		// $("[for='altFukidashiClose_checkbox']").html(chrome.i18n.getMessage("Option_LabelFukidashiClose"));
+		$("[for='alt_checkbox']").html(chrome.i18n.getMessage("Option_LabelAlt"));
+		$("[for='title_checkbox']").html(chrome.i18n.getMessage("Option_LabelTitle"));
+		$("[for='size_checkbox']").html(chrome.i18n.getMessage("Option_LabelSize"));
+		$("[for='path_checkbox']").html(chrome.i18n.getMessage("Option_LabelPath"));
+		// $("[for='extension_checkbox']").html(chrome.i18n.getMessage("Option_LabelExtension"));
+		$("[for='console_checkbox']").html(chrome.i18n.getMessage("Option_LabelConsole"));
+		$("[for='noAltList_checkbox']").html(chrome.i18n.getMessage("Option_LabelNoAltList"));
+		$("[for='altFukidashiClose_checkbox']").html(chrome.i18n.getMessage("Option_LabelFukidashiClose"));
 	}
 
 	getStorageVal(): void {

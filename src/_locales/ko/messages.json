@@ -19,5 +19,29 @@
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "이미지 크기"
+   },
+   "Option_LabelPath": {
+      "message": "이미지 경로"
+   },
+   "Option_LabelExtension": {
+      "message": "신장"
+   },
+   "Option_LabelConsole": {
+      "message": "Console 산출"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt 아무것도 없다"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt 버블 닫기 버튼"
    }
 }

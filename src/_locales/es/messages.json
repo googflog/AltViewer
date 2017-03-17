@@ -19,5 +19,29 @@
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Tamaño de la imagen"
+   },
+   "Option_LabelPath": {
+      "message": "Ruta de la imagen"
+   },
+   "Option_LabelExtension": {
+      "message": "Extensión"
+   },
+   "Option_LabelConsole": {
+      "message": "Console salida"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Lista de nada de Alt"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Botón de cierre de la burbuja"
    }
 }

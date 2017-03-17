@@ -9,15 +9,39 @@
       "message": "Alt Anzeige"
    },
    "PopUp_Loading": {
-      "message": "Verladung..."
+      "message": "Laden..."
    },
    "defaultTitle": {
       "message": "Alt & Meta viewer"
    },
    "extDescription": {
-      "message": "Zeigen Sie mir das Title-Attribut des Bildes oder Alt. Titel der Kopfzeile, werde ich die Meta-Informationen."
+      "message": "Sie können die Alt oder Title-Attribut hat noch in das Bild in der Werkzeugspitze gesetzt. Header der Titel, können Sie die Meta-Informationen aufzulisten."
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Bildgröße"
+   },
+   "Option_LabelPath": {
+      "message": "Bildpfad"
+   },
+   "Option_LabelExtension": {
+      "message": "Erweiterung"
+   },
+   "Option_LabelConsole": {
+      "message": "Console Ausgabe"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Nichts liste"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bubble schließen Taste"
    }
 }

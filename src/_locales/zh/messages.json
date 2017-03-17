@@ -1,12 +1,12 @@
 {
    "Alt_Fukidashi_txt": {
-      "message": "没有设置"
+      "message": "无设置"
    },
    "PopUp_ShowMetaBtn": {
-      "message": "Title Meta 显示"
+      "message": "显示Title Meta"
    },
    "PopUp_ShowAltBtn": {
-      "message": "图片 Alt 显示"
+      "message": "显示Alt"
    },
    "PopUp_Loading": {
       "message": "载入中..."
@@ -15,9 +15,33 @@
       "message": "Alt & Meta viewer"
    },
    "extDescription": {
-      "message": "它可以被显示在显示为工具提示或Alt标题属性的图像中设定的状态。我以显示标题头，元信息。"
+      "message": "您可以查看Alt键或Title属性已在刀尖在图像设置。标题的头，你可以列出的Meta信息。"
    },
    "extName": {
       "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "图像大小"
+   },
+   "Option_LabelPath": {
+      "message": "图像路径"
+   },
+   "Option_LabelExtension": {
+      "message": "延期"
+   },
+   "Option_LabelConsole": {
+      "message": "Console输出"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt键无列出"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt气球关闭按钮"
    }
 }
