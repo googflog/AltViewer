@@ -1,3 +1,5 @@
+$font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
+
 html body .AltView_012345_Tip_show,
 html body img.AltView_012345_Tip_show {
 	box-shadow: 0 0 0 5px rgba(255, 167, 21, 0.7) !important;
@@ -32,9 +34,28 @@ html body img.AltView_012345_Tip_show {
 		margin-top: 0;
 	}
 
-	#AltView_NoAlt_Result {
+	.altViewNoAltUlBlock {
 		padding: 0;
 		margin: 0;
+		display: table;
+
+		&__list {
+			padding: 1em;
+			display: table-cell;
+			width: 100px;
+			height: 100px;
+		}
+
+		&__img {
+			display: block;
+
+			&:hover {
+				box-shadow: 0 0 0 4px rgba(255, 167, 21, 0.7);
+			}
+			width: 100px;
+			height: 100px;
+			overflow: hidden;
+		}
 	}
 
 	#AltView_NoAlt_Result_Wrap {
@@ -45,8 +66,8 @@ html body img.AltView_012345_Tip_show {
 		height: 150px;
 	}
 
-	#AltView_NoAlt_head_closebtn {
-		font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
+	.altViewNoAltHeadCloseBtn {
+		font-family: $font-family;
 		line-height: 1em;
 		float: right;
 		background: #333;
@@ -54,7 +75,6 @@ html body img.AltView_012345_Tip_show {
 		min-width: 100px;
 		text-align: center;
 		background: #eb6100;
-		// background: linear-gradient(135deg, #ea7f38 0%,#eb6100 66%);
 		background: linear-gradient(to bottom, #eb6100 0%,#e55000 100%);
 		margin-right: 35px;
 		font-weight: normal;
@@ -63,25 +83,38 @@ html body img.AltView_012345_Tip_show {
 		height: 35px;
 		user-select: none;
 		text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3);
-		// border-bottom: 0.5px solid rgba(0,0,0,0.1);
-		// border-right: 0.5px solid rgba(0,0,0,0.1);
-		// border-left: 0.5px solid rgba(255,255,255,0.2);
 		box-shadow: 1px 1px 10px 0 rgba(0, 0, 0, 0.3);
+		color: #fff;
+		text-decoration: none;
+		border: none;
 
-		p {
+		&__txt {
 			display: table-cell;
 			vertical-align: middle;
 			text-align: center;
 			padding: 0 1.05em 0 0.5em;
+			line-height: 1em;
+			font-size: 12px;
+			font-family: $font-family;
+
+			span {
+				font-size: 14px;
+				font-family: $font-family;
+			}
+		}
+
+		&-perfect {
+			transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1) 0s;
+			// background: linear-gradient(to bottom, #64cd2b 0%,#3cd107 100%);
+			.altViewNoAltHeadCloseBtn__txt {
+				padding: 0 1.5em;
+			}
 		}
 
 		&:hover {
 			background: #f87a00;
 			background: linear-gradient(to bottom, #f87a00 0%,#eb6100 100%);
-		}
-
-		span {
-			font-size: 14px;
+			border: none;
 		}
 
 		.arrow {
@@ -90,7 +123,7 @@ html body img.AltView_012345_Tip_show {
 	}
 
 	&.active {
-		#AltView_NoAlt_head_closebtn {
+		.altViewNoAltHeadCloseBtn {
 			.arrow {
 				transform: scaleY(-1);
 			}
@@ -103,7 +136,6 @@ html body img.AltView_012345_Tip_show {
 		width: 35px;
 		height: 35px;
 		transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1) 0.5s;
-
 		user-select: none;
 		text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.3);
 		// border-bottom: 0.2px solid rgba(0,0,0,0.1);
@@ -114,34 +146,18 @@ html body img.AltView_012345_Tip_show {
 		// background: linear-gradient(135deg, #ea7f38 0%,#eb6100 66%);
 		background: linear-gradient(to bottom, #eb6100 0%,#e55000 100%);
 		margin-right: 17.5px;
+		border: none;
 
 		&:hover {
 			background: #f87a00;
 			background: linear-gradient(to bottom, #f87a00 0%,#eb6100 100%);
+			border: none;
 		}
 	}
 
 	&.active {
 		#AltView_NoAlt_head_closeAltBtn {
 			transform: scale(0);
-		}
-	}
-
-	ul {
-		margin: 0;
-		display: table;
-		li {
-			padding: 1em;
-			display: table-cell;
-			div{
-				&:hover {
-					box-shadow: 0 0 0 4px rgba(255, 167, 21, 0.7);
-				}
-				width: 100px;
-				height: 100px;
-				overflow: hidden;
-
-			}
 		}
 	}
 }
@@ -155,6 +171,7 @@ html body img.AltView_012345_Tip_show {
 
 		.txt {
 			position: relative;
+			font-family: $font-family;
 
 			.closeBtn {
 				position: absolute;
@@ -199,6 +216,7 @@ html body img.AltView_012345_Tip_show {
 
 				span {
 					// display: table-cell;
+					font-family: $font-family;
 					padding: 0 0.5em;
 				}
 
@@ -267,7 +285,7 @@ html body img.AltView_012345_Tip_show {
 			color: #fff;
 			cursor: auto;
 			background: #333;
-			padding: 8px 8px 7px;
+			padding: 8px 8px 3px;
 			// box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.5);
 			box-shadow: 0 0 0 1px rgba(255,255,255,0.2),1px 1px 10px rgba(0, 0, 0, 0.5);
 			border-radius: 0;

@@ -2,6 +2,27 @@
    "Alt_Fukidashi_txt": {
       "message": "Nếu không có"
    },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Không Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Không Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Không có Alt hoặc Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt là hoàn hảo!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title là hoàn hảo!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title là hoàn hảo!"
+   },
    "PopUp_ShowMetaBtn": {
       "message": "Title Meta trưng bày"
    },

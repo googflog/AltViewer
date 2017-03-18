@@ -28,7 +28,7 @@ class Options {
 		var items: object;
 		var defaults = {
 			alt_checkbox: true,
-			title_checkbox: true,
+			title_checkbox: false,
 			size_checkbox: true,
 			path_checkbox: false,
 			extension_checkbox: false,

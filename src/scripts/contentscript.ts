@@ -10,14 +10,23 @@ class ContentScript {
 
     constructor() {
         chrome.runtime.onMessage.addListener(function(anymessage, sender, sendResponse) {
-            // console.log("ポップアップが開いてメッセージを受けた", anymessage);
-            if (anymessage.contetState == "AreYouReady?") {
+
+            /*
+            *
+            ポップアップが開いてメッセージを受けた
+            *
+            */
+			if (anymessage.contetState == "AreYouReady?") {
                 sendResponse({
                     contetState: "OkGo!"
                 });
             }
 
-            //Alt表示
+            /*
+            *
+            Alt表示
+            *
+            */
             if (anymessage.fromPopUp == "Alt") {
                 if (!this.showAlt) {
                     this.alt_view.show();
@@ -25,7 +34,12 @@ class ContentScript {
                     this.alt_view.close();
                 }
             }
-            //メタ表示
+
+            /*
+            *
+            メタ表示
+            *
+            */
             if (anymessage.fromPopUp == "Meta") {
                 if (!this.showMeta) {
                     this.meta_view.show();
@@ -33,6 +47,12 @@ class ContentScript {
                     this.meta_view.close();
                 }
             }
+
+            /*
+            *
+            POPUPにレスポンスを返す
+            *
+            */
             if (anymessage.fromPopUp == "Open!" || anymessage.fromPopUp == "Alt" || anymessage.fromPopUp == "Meta") {
                 sendResponse({
                     ContentsShowAlt: this.showAlt,

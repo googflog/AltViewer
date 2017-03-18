@@ -2,6 +2,27 @@
    "Alt_Fukidashi_txt": {
       "message": "No Settings"
    },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "No Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "No Title "
+   },
+   "Alt_List_txt4": {
+      "message": "No Alt or Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt is perfect!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title is perfect!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt and Title is perfect!"
+   },
    "PopUp_ShowMetaBtn": {
       "message": "Show title meta"
    },

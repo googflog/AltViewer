@@ -2,6 +2,27 @@
    "Alt_Fukidashi_txt": {
       "message": "कोई सेटिंग"
    },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "कोई Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "कोई Title "
+   },
+   "Alt_List_txt4": {
+      "message": "कोई भी Alt या Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt एकदम सही है!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title एकदम सही है!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title एकदम सही है!"
+   },
    "PopUp_ShowMetaBtn": {
       "message": "Title Meta प्रदर्शन"
    },

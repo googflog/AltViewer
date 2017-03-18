@@ -2,6 +2,27 @@
    "Alt_Fukidashi_txt": {
       "message": "설정 없음"
    },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Alt 없음 "
+   },
+   "Alt_List_txt3": {
+      "message": "Title 없음 "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt 또는 Title 없음 "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt 완벽!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title 완벽!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title 완벽!"
+   },
    "PopUp_ShowMetaBtn": {
       "message": "Title Meta 표시"
    },
