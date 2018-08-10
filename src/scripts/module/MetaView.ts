@@ -28,12 +28,12 @@ module MetaViewModule {
             this.ObjMetaViewContent = $("<div id='TitleView_Contents_012345' class='TitleView012345_Contents'></div>");
             this.ObjMetaViewBlock.append(this.ObjMetaViewContent);
 
-            this.ObjMetaViewContent.append("<h3 class='TitleView012345_Contents__ttl'>Title: " + $("title").text() + "</h3>");
+            this.ObjMetaViewContent.append("<h3 class='TitleView012345_Contents__ttl'>Title: " + $("head title").text() + "</h3>");
             this.ObjMetaViewContent.append("<hr class='TitleView012345_Contents__hr'>");
             this.ObjMetaViewContent.append("<h3 class='TitleView012345_Contents__ttl'>Meta:</h3>");
 
             //Metaを調べる
-            $("meta").each(function() {
+            $("head meta").each(function() {
                 var meta: string = "";
                 var imgis: number = 0;
                 var img: string = "";
