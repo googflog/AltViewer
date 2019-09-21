@@ -1,0 +1,33 @@
+@mixin reset() {
+	* {
+		font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif !important;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font-weight: 400;
+		font: inherit;
+		vertical-align: baseline;
+		line-height: 1;
+		list-style: none;
+		quotes: none;
+		letter-spacing: 0.01em;
+
+		blockquote:after,
+		blockquote:before,
+		q:after,
+		q:before {
+			content: '';
+			content: none;
+		}
+		outline: 0;
+		background: transparent;
+		text-shadow: none;
+		box-shadow: none;
+
+		::selection {
+		  background: rgba(248, 148, 6, 0.8);
+			color: #fff;
+		}
+	}
+}

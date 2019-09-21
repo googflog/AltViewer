@@ -14,9 +14,10 @@ module MetaViewModule {
         }
 
         show() {
-            var this_ = this;
+            let this_ = this;
             this.dispatchEvent(new events.Event("show", true));
-            $("html").addClass('TitleView_012345_show')
+            $("html").addClass('TitleView_012345_show');
+
 
             //Metaの表示エリアを追加する
             this.ObjMetaViewWrapBlock = $("<div id='TitleView_012345' class='TitleView012345_Box'></div>");
@@ -38,6 +39,7 @@ module MetaViewModule {
                 var imgis: number = 0;
                 var img: string = "";
                 var imgpath: string = "";
+
                 for (var j = 0; j < $(this).context.attributes.length; j++) {
                     var name = $(this).context.attributes[j].nodeName;
                     var val = $(this).context.attributes[j].nodeValue;

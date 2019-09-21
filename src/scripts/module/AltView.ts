@@ -635,7 +635,7 @@ module AltViewModule {
 
 		}
 
-		//ツールチップの ▼ 部分
+        //ツールチップの ▼ 部分
 		fukidashiCSS() {
 			var this_ = this;
 			//ツイールチップの吹き出しの方向

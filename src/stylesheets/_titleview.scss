@@ -29,6 +29,13 @@
 		font-family: 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 		// font-family: 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
 	}
+
+	img{
+		font-size: 0;
+		line-height: 0;
+		background: transparent;
+	}
+
 	.TitleView012345_Objs {
 		padding: 34px 34px 17px 34px;
 	}
@@ -167,6 +174,7 @@
 			// vertical-align: middle;
 			// display: table-cell;
 		}
+
 
 		&:hover {
 			background: #eb6100;
