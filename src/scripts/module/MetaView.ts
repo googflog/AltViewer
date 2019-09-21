@@ -76,7 +76,7 @@ module MetaViewModule {
 
             //閉じるボタン
             this.ObjMetaViewBlock.prepend("<div id='TitleView_closebtn_head_012345' class='TitleView012345_HeadCloseBtn'><img src='"+chrome.runtime.getURL("images/close_w.svg")+"' width='45'></div>");
-            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345' class='TitleView012345_CloseBtn'><img src='"+chrome.runtime.getURL("images/close_w.svg")+"' width='45'><div> CLOSE</div></div>");
+            this.ObjMetaViewBlock.append("<div id='TitleView_closebtn_012345' class='TitleView012345_CloseBtn'><img src='"+chrome.runtime.getURL("images/close_w.svg")+"' width='45'><div class='TitleView012345_CloseBtn_txt'> CLOSE</div></div>");
 
             //Meta一覧表示
             var titleview_012345_time: number;

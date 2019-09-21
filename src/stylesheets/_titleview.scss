@@ -72,6 +72,7 @@
 			margin: 0;
 			font-size: 13px;
 			font-weight: numal;
+			color: #fff !important;
 
 			&__span {
 				box-sizing: border-box;
@@ -156,8 +157,7 @@
 		text-align: center;
 		font-size: 16px;
 		background: rgba(0, 0, 0, 0.7);
-		color: #fff;
-		text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+		text-shadow: none;
 		width: 100%;
 		max-width: 1000px;
 		margin: 0;
@@ -165,6 +165,8 @@
 		opacity: 0;
 		transform: scale(0);
 		// display: table;
+
+
 
 		display: flex;
 	   justify-content: center;
@@ -174,7 +176,12 @@
 			// vertical-align: middle;
 			// display: table-cell;
 		}
-
+		*{
+			text-align: center;
+			font-size: 16px!important;
+			color: #fff !important;
+			text-shadow: none !important;
+		};
 
 		&:hover {
 			background: #eb6100;
