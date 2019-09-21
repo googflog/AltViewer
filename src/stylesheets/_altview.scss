@@ -252,17 +252,20 @@ html body img.AltView_012345_Tip_show {
 
 				.set {
 					padding: 0;
+					color: #fff;
 				}
 
-				.x {}
+				.x {color: #fff;}
 
 				.px {
 					padding: 0 0 0 0.5em;
+					color: #fff;
 				}
 
 				.at {
 					word-break: break-all;
 					padding: 0;
+					color: white;
 				}
 				color: white;
 				font-weight: normal;
@@ -287,6 +290,7 @@ html body img.AltView_012345_Tip_show {
 				&Body {
 					display: table-cell;
 					padding: 0 0.5em;
+					color: #fff;
 				}
 			}
 			// white-space: nowrap;
