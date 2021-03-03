@@ -1,6 +1,6 @@
 # Alt & Meta viewer
 
-## Chrome 機能拡張 Alt & Meta viewer ビューワのデータ。
+### Chrome 機能拡張 Alt & Meta viewer ビューワのデータ
 
 #### デバッグ
 
