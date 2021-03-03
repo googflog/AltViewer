@@ -30,15 +30,20 @@ module AltViewModule {
 
 
 
+		
+
 		show = () => {
 			var this_ = this;
 
-			this.getOptions();
+			this.getOptions(this.checkbox);
 			this.showMove();
 
 		}
 
-		getOptions = () => {
+		/**
+		 * Option の設定を Storage より読み込む
+		 */
+		getOptions = (checkbox_:object) => {
 			var this_ = this;
 			var defaults = {
 				alt_checkbox: true,
@@ -53,7 +58,7 @@ module AltViewModule {
 			chrome.storage.sync.get(
 				defaults,
 				function(items) {
-					this_.checkbox = items;
+					checkbox_ = items;
 				});
 		}
 
@@ -183,15 +188,11 @@ module AltViewModule {
 				this.noTitleShowConsoleLog();
 			}
 
-			/*
-			*
-			* Alt無しリスト
-			*
-			*/
+			// Alt無しリスト
 			this.addNoAltList(checkbox.noAltList_checkbox, checkbox.alt_checkbox, checkbox.title_checkbox, checkbox.altFukidashiClose_checkbox);
 
 
-			//
+			// 画面リサイズ時の処理
 			this.fResizeTitleView();
 
 		}
@@ -208,7 +209,11 @@ module AltViewModule {
 
 
 
-		//ツールチップを追加
+		/**
+		 * ツールチップを追加
+		 * @param data 
+		 * @param tipData 
+		 */
 		addTooltip(data: any, tipData: string): any {
 
 			//Tipに表示されるデータをまとめる
@@ -387,7 +392,13 @@ module AltViewModule {
 
 
 
-		//
+		/**
+		 * Alt無しリスト
+		 * @param altlistbtn 
+		 * @param alt_show 
+		 * @param title_show 
+		 * @param closebtn 
+		 */
 		addNoAltList(altlistbtn: boolean, alt_show: boolean, title_show: boolean, closebtn: boolean): void {
 			var this_ = this;
 
@@ -523,11 +534,11 @@ module AltViewModule {
 
 		};
 
-		/*
-		*
-		* 画像を解析する
-		*
-		*/
+		/**
+		 * 画像を解析する
+		 * @param index 
+		 * @param element 
+		 */
 		getImgTagData(index: number, element: JQuery): object {
 
 			//スタイルシート
@@ -618,7 +629,9 @@ module AltViewModule {
 			return imgTagData
 		}
 
-
+		/**
+		 * 画面リサイズ時の処理
+		 */
 		fResizeTitleView() {
 			//画面リサイズ時の処理
 			var this_ = this;
@@ -635,7 +648,9 @@ module AltViewModule {
 
 		}
 
-        //ツールチップの ▼ 部分
+        /**
+		 * ツールチップの ▼ 部分
+		 */
 		fukidashiCSS() {
 			var this_ = this;
 			//ツイールチップの吹き出しの方向

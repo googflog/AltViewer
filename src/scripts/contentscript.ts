@@ -2,6 +2,9 @@
 /// <reference path="module/AltView.ts" />
 import MetaView = MetaViewModule.MetaView;
 import AltView = AltViewModule.AltView;
+/**
+ * ContentScript
+ */
 class ContentScript {
     meta_view: MetaView = new MetaView();
     alt_view: AltView = new AltView();
@@ -11,11 +14,7 @@ class ContentScript {
     constructor() {
         chrome.runtime.onMessage.addListener(function (anymessage, sender, sendResponse) {
 
-            /*
-             *
-             ポップアップが開いてメッセージを受けた
-             *
-             */
+            //ポップアップが開いてメッセージを受けた
             if (anymessage.contetState == "AreYouReady?") {
                 sendResponse({
                     contetState: "OkGo!"
@@ -35,11 +34,7 @@ class ContentScript {
                 }
             }
 
-            /*
-             *
-             メタ表示
-             *
-             */
+            //メタ表示
             if (anymessage.fromPopUp == "Meta") {
                 if (!this.showMeta) {
                     this.meta_view.show();
@@ -48,11 +43,7 @@ class ContentScript {
                 }
             }
 
-            /*
-             *
-             POPUPにレスポンスを返す
-             *
-             */
+            //POPUPにレスポンスを返す
             if (anymessage.fromPopUp == "Open!" || anymessage.fromPopUp == "Alt" || anymessage.fromPopUp == "Meta") {
                 sendResponse({
                     ContentsShowAlt: this.showAlt,
