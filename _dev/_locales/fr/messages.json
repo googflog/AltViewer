@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Aucun réglage"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Non Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Non Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt ou sans Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt est parfait!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title est parfait!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title est parfait!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta Afficher"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt Afficher"
+   },
+   "PopUp_Loading": {
+      "message": "Chargement..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Il est possible d'afficher l'attribut Title ou Alt est situé dans l'image. I pour afficher l'en-tête Titre, l'information Meta."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Taille de l'image"
+   },
+   "Option_LabelPath": {
+      "message": "Chemin d'image"
+   },
+   "Option_LabelExtension": {
+      "message": "Extension"
+   },
+   "Option_LabelConsole": {
+      "message": "Console sortie"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Rien liste"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bouton de fermeture de bulle"
+   }
+}

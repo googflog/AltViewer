@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "설정 없음"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Alt 없음 "
+   },
+   "Alt_List_txt3": {
+      "message": "Title 없음 "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt 또는 Title 없음 "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt 완벽!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title 완벽!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title 완벽!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta 표시"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt 표시"
+   },
+   "PopUp_Loading": {
+      "message": "로딩..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "이미지에 설정된 Alt 또는 Title 특성을 툴팁에 보이는 상태로 표시 할 수 있습니다. 헤더의 Title, Meta 정보를 표시합니다."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "이미지 크기"
+   },
+   "Option_LabelPath": {
+      "message": "이미지 경로"
+   },
+   "Option_LabelExtension": {
+      "message": "신장"
+   },
+   "Option_LabelConsole": {
+      "message": "Console 산출"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt 아무것도 없다"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt 버블 닫기 버튼"
+   }
+}

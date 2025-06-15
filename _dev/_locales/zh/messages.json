@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "无设置"
+   },
+   "Alt_List_txt1": {
+      "message": " 个"
+   },
+   "Alt_List_txt2": {
+      "message": "没有 Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "没有 Title "
+   },
+   "Alt_List_txt4": {
+      "message": "没有 Alt Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt 是完美的！"
+   },
+   "Alt_List_txt6": {
+      "message": "Title 是完美的！"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title 是完美的！"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "显示Title Meta"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "显示Alt"
+   },
+   "PopUp_Loading": {
+      "message": "载入中..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "您可以查看Alt键或Title属性已在刀尖在图像设置。标题的头，你可以列出的Meta信息。"
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "图像大小"
+   },
+   "Option_LabelPath": {
+      "message": "图像路径"
+   },
+   "Option_LabelExtension": {
+      "message": "延期"
+   },
+   "Option_LabelConsole": {
+      "message": "Console输出"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt键无列出"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt气球关闭按钮"
+   }
+}

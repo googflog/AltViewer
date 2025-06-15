@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Nenhuma configuração"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Sem Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Sem Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt ou sem Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt é perfeito!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title é perfeito!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title é perfeito!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta exibição"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt exibição"
+   },
+   "PopUp_Loading": {
+      "message": "carregamento..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Exibe Título dica de ferramenta, o cabeçalho, as informações Meta o atributo Título da imagem ou Alt."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Tamanho da imagem"
+   },
+   "Option_LabelPath": {
+      "message": "Caminho da imagem"
+   },
+   "Option_LabelExtension": {
+      "message": "Extensão"
+   },
+   "Option_LabelConsole": {
+      "message": "Console saída"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Nada lista"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Botão de fechamento da bolha"
+   }
+}

@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Nessuna impostazione"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "No Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "No Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt o senza Title"
+   },
+   "Alt_List_txt5": {
+      "message": "Alt è perfetto!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title è perfetto!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title è perfetto!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta Visualizza"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt Visualizza"
+   },
+   "PopUp_Loading": {
+      "message": "caricamento..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Fammi vedere l'attributo titolo dell'immagine o Alt. Titolo della testata, io le informazioni Meta."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Image size"
+   },
+   "Option_LabelPath": {
+      "message": "Percorso immagine"
+   },
+   "Option_LabelExtension": {
+      "message": "Estensione"
+   },
+   "Option_LabelConsole": {
+      "message": "Console produzione"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt lista nulla"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bubble pulsante di chiusura"
+   }
+}

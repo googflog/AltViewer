@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "No hay ajuste"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Sin Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Sin Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt o sin Title"
+   },
+   "Alt_List_txt5": {
+      "message": "Alt es perfecto!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title es perfecto!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title es perfecto!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta visualización"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt visualización"
+   },
+   "PopUp_Loading": {
+      "message": "Loadign..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Le permite mostrar el título o Alt de la imagen. I para mostrar el encabezado del título, la información Meta."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Tamaño de la imagen"
+   },
+   "Option_LabelPath": {
+      "message": "Ruta de la imagen"
+   },
+   "Option_LabelExtension": {
+      "message": "Extensión"
+   },
+   "Option_LabelConsole": {
+      "message": "Console salida"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Lista de nada de Alt"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Botón de cierre de la burbuja"
+   }
+}

@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Nếu không có"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Không Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Không Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Không có Alt hoặc Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt là hoàn hảo!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title là hoàn hảo!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title là hoàn hảo!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta trưng bày"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt trưng bày"
+   },
+   "PopUp_Loading": {
+      "message": "Đang tải"
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Bạn có thể xem Alt hoặc tiêu đề thuộc tính đã được thiết lập trong các hình ảnh trong các mẹo công cụ. Tiêu đề của tiêu đề, bạn có thể liệt kê các thông tin Meta."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt trưng bày"
+   },
+   "Option_LabelTitle": {
+      "message": "Title trưng bày"
+   },
+   "Option_LabelSize": {
+      "message": "Kích thước ảnh trưng bày"
+   },
+   "Option_LabelPath": {
+      "message": "đường dẫn hình ảnh trưng bày"
+   },
+   "Option_LabelExtension": {
+      "message": "sự mở rộng trưng bày"
+   },
+   "Option_LabelConsole": {
+      "message": "Console trưng bày"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Không Danh sách"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt bóng nút Close"
+   }
+}

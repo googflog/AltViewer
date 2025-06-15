@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "कोई सेटिंग"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "कोई Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "कोई Title "
+   },
+   "Alt_List_txt4": {
+      "message": "कोई भी Alt या Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt एकदम सही है!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title एकदम सही है!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title एकदम सही है!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta प्रदर्शन"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt प्रदर्शन"
+   },
+   "PopUp_Loading": {
+      "message": "लदान…"
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "आप Alt देख सकते हैं या शीर्षक विशेषता उपकरण टिप में छवि में स्थापित किया गया है। शीर्षक के हैडर, आप मेटा जानकारी सूची कर सकते हैं।"
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt प्रदर्शन"
+   },
+   "Option_LabelTitle": {
+      "message": "Title प्रदर्शन"
+   },
+   "Option_LabelSize": {
+      "message": "छवि का आकार प्रदर्शन"
+   },
+   "Option_LabelPath": {
+      "message": "छवि पथ प्रदर्शन"
+   },
+   "Option_LabelExtension": {
+      "message": "एक्सटेंशन प्रदर्शन"
+   },
+   "Option_LabelConsole": {
+      "message": "Console उत्पादन"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt कोई भी सूची"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt गुब्बारा बंद बटन"
+   }
+}

@@ -1,0 +1,68 @@
+{
+   "Alt_Fukidashi_txt": {
+      "message": "Keine Einstellung"
+   },
+   "Alt_List_txt1": {
+      "message": ""
+   },
+   "Alt_List_txt2": {
+      "message": "Nein Alt "
+   },
+   "Alt_List_txt3": {
+      "message": "Nein Title "
+   },
+   "Alt_List_txt4": {
+      "message": "Alt oder ohne Title "
+   },
+   "Alt_List_txt5": {
+      "message": "Alt ist perfekt!"
+   },
+   "Alt_List_txt6": {
+      "message": "Title ist perfekt!"
+   },
+   "Alt_List_txt7": {
+      "message": "Alt, Title ist perfekt!"
+   },
+   "PopUp_ShowMetaBtn": {
+      "message": "Title Meta Anzeige"
+   },
+   "PopUp_ShowAltBtn": {
+      "message": "Alt Anzeige"
+   },
+   "PopUp_Loading": {
+      "message": "Laden..."
+   },
+   "defaultTitle": {
+      "message": "Alt & Meta viewer"
+   },
+   "extDescription": {
+      "message": "Sie können die Alt oder Title-Attribut hat noch in das Bild in der Werkzeugspitze gesetzt. Header der Titel, können Sie die Meta-Informationen aufzulisten."
+   },
+   "extName": {
+      "message": "Alt & Meta viewer"
+   },
+   "Option_LabelAlt": {
+      "message": "Alt"
+   },
+   "Option_LabelTitle": {
+      "message": "Title"
+   },
+   "Option_LabelSize": {
+      "message": "Bildgröße"
+   },
+   "Option_LabelPath": {
+      "message": "Bildpfad"
+   },
+   "Option_LabelExtension": {
+      "message": "Erweiterung"
+   },
+   "Option_LabelConsole": {
+      "message": "Console Ausgabe"
+   },
+   "Option_LabelNoAltList": {
+      "message": "Alt Nichts liste"
+   },
+   "Option_LabelFukidashiClose": {
+      "message": "Alt Bubble schließen Taste"
+   }
+}
