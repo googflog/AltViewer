@@ -97,4 +97,4 @@ class Int {
   }
 }
 
-this.PopUp();
+new PopUp();

@@ -1,147 +1,127 @@
-var gulp = require('gulp');
-var plumber = require('gulp-plumber');
+const gulp = require('gulp');
+const plumber = require('gulp-plumber');
 
-var browserSync = require('browser-sync').create();
+// Browsersync はコメントアウトのまま残しておくぜ★
+const browserSync = require('browser-sync').create();
 
-var typescript = require('gulp-typescript');
+const typescript = require('gulp-typescript');
 
-var sass = require('gulp-sass');
-var sourcemaps = require('gulp-sourcemaps');
+// Node18 でも動く dart-sass を使うよ！
+const dartSass = require('sass');
+const sass = require('gulp-sass')(dartSass);
 
-var pug = require('gulp-pug');
-var htmlbeautify = require('gulp-html-beautify');
-var dest = {}
-var target = "dev";
+const sourcemaps = require('gulp-sourcemaps');
+const pug = require('gulp-pug');
+const htmlbeautify = require('gulp-html-beautify');
 
-gulp.task('pug', function buildHTML() {
+let target = 'dev';
+
+// ---------- 単体タスク ----------
+function pugTask() {
     return gulp.src('./src/templates/**/*.pug')
         .pipe(plumber())
-        .pipe(pug({
-            // Your options in here.
-        }))
+        .pipe(pug())
         .pipe(htmlbeautify())
-        .pipe(gulp.dest('./' + target + '/'));
-});
+        .pipe(gulp.dest(`./${target}/`));
+}
 
-gulp.task('sass', function() {
-    if (target == "dev") {
-        gulp.src('./src/stylesheets/**/*.scss')
-            .pipe(sourcemaps.init())
-            .pipe(plumber())
-            .pipe(sass({
-                style: 'expanded'
-            }))
-            .pipe(sourcemaps.write())
-            .pipe(gulp.dest('./' + target + '/assets/css'));
-    } else {
-        gulp.src('./src/stylesheets/**/*.scss')
-            .pipe(plumber())
-            .pipe(sass({
-                outputStyle: 'compressed'
-            }))
-            .pipe(gulp.dest('./' + target + '/assets/css'));
+function sassTask() {
+    const optsDev = { outputStyle: 'expanded' };
+    const optsProd = { outputStyle: 'compressed' };
+
+    let stream = gulp.src('./src/stylesheets/**/*.scss');
+
+    if (target === 'dev') {
+        stream = stream.pipe(sourcemaps.init());
     }
-});
 
-gulp.task('ts', () => {
-    var ts_array = ['popup', 'background', 'contentscript', 'option'];
+    stream = stream
+        .pipe(plumber())
+        .pipe(sass(target === 'dev' ? optsDev : optsProd).on('error', sass.logError));
 
-    for (var value of ts_array) {
-        if (target == "dev") {
-            gulp.src('./src/scripts/**/' + value + '.ts')
-                .pipe(sourcemaps.init())
+    if (target === 'dev') {
+        stream = stream.pipe(sourcemaps.write());
+    }
+
+    return stream.pipe(gulp.dest(`./${target}/assets/css`));
+}
+
+function tsTask() {
+    const tsArray = ['popup', 'background', 'contentscript', 'option'];
+
+    // Promise.all で全てのビルドが終わるまで待つぜ★
+    return Promise.all(tsArray.map(value => {
+        return new Promise((resolve, reject) => {
+            let stream = gulp.src(`./src/scripts/**/${value}.ts`);
+
+            if (target === 'dev') {
+                stream = stream.pipe(sourcemaps.init());
+            }
+
+            stream = stream
                 .pipe(plumber())
                 .pipe(typescript({
                     target: 'ES5',
-                    removeComments: false,
-                    out: value + '.js'
-                }))
-                .js
-                .pipe(sourcemaps.write())
-                .pipe(gulp.dest('./' + target + '/assets/js'));
-        }else {
-          gulp.src('./src/scripts/**/' + value + '.ts')
-              .pipe(sourcemaps.init())
-              .pipe(plumber())
-              .pipe(typescript({
-                  target: 'ES5',
-                  removeComments: true,
-                  out: value + '.js'
-              }))
-              .js
-              .pipe(gulp.dest('./' + target + '/assets/js'));
-        }
-    }
+                    removeComments: target !== 'dev',
+                    outFile: `${value}.js`
+                })).js;
 
-});
+            if (target === 'dev') {
+                stream = stream.pipe(sourcemaps.write());
+            }
 
-gulp.task('images', function() {
-    gulp.src('./src/images/**/*')
-        .pipe(gulp.dest('./' + target + '/images/'));
-});
+            stream
+                .pipe(gulp.dest(`./${target}/assets/js`))
+                .on('end', resolve)
+                .on('error', reject);
+        });
+    }));
+}
 
-gulp.task('filescopy', function() {
-    gulp.src('./src/*.{md,json}')
-        .pipe(gulp.dest('./' + target + '/'));
-    gulp.src('./src/_locales/**/*')
-        .pipe(gulp.dest('./' + target + '/_locales/'));
-    gulp.src('./src/scripts/module/jquery-1.11.1.min.js')
-        .pipe(gulp.dest('./' + target + '/assets/js/'));
-});
+function imagesTask() {
+    return gulp.src('./src/images/**/*')
+        .pipe(gulp.dest(`./${target}/images/`));
+}
 
-gulp.task('browser-sync', function() {
-    browserSync.init({
-        server: {
-            baseDir: "./src"
-        }
-    });
-});
+function filescopyTask() {
+    const copyRoot = gulp.src('./src/*.{md,json}')
+        .pipe(gulp.dest(`./${target}/`));
 
-gulp.task('dev', function() {
-    target = 'dev';
-    // browserSync.init({
-    //     server: {
-    //         baseDir: './' + target + '/'
-    //     }
-    // });
-    // srcフォルダ以下のファイルを監視
-    // gulp.watch('./' + target + '/**', function() {
-    //     browserSync.reload(); // ファイルに変更があれば同期しているブラウザをリロード
-    // });
-    // gulp.task('default', ['sample']);
+    const copyLocales = gulp.src('./src/_locales/**/*')
+        .pipe(gulp.dest(`./${target}/_locales/`));
 
-    gulp.start('filescopy');
-    gulp.start('images');
-    gulp.start('pug');
-    gulp.start('sass');
-    gulp.start('ts');
-    gulp.watch('./src/**/*.{md,json}', ['filescopy']);
-    gulp.watch('./src/images/**/*', ['images']);
-    gulp.watch('./src/templates/**/*.pug', ['pug']);
-    gulp.watch('./src/stylesheets/**/*.scss', ['sass']);
-    gulp.watch('./src/scripts/**/*.ts', ['ts']);
-});
+    const copyJquery = gulp.src('./src/scripts/module/jquery-1.11.1.min.js')
+        .pipe(gulp.dest(`./${target}/assets/js/`));
 
-gulp.task('prod', function() {
-    target = 'prod';
-    // browserSync.init({
-    //     server: {
-    //         baseDir: './' + target + '/'
-    //     }
-    // });
-    // srcフォルダ以下のファイルを監視
-    // gulp.watch('./' + target + '/**', function() {
-    //     browserSync.reload(); // ファイルに変更があれば同期しているブラウザをリロード
-    // });
+    return Promise.all([copyRoot, copyLocales, copyJquery].map(stream => new Promise((resolve, reject) => {
+        stream.on('end', resolve).on('error', reject);
+    })));
+}
 
-    gulp.start('filescopy');
-    gulp.start('images');
-    gulp.start('pug');
-    gulp.start('sass');
-    gulp.start('ts');
-    gulp.watch('./src/**/*.{md,json}', ['filescopy']);
-    gulp.watch('./src/images/**/*', ['images']);
-    gulp.watch('./src/templates/**/*.pug', ['pug']);
-    gulp.watch('./src/stylesheets/**/*.scss', ['sass']);
-    gulp.watch('./src/scripts/**/*.ts', ['ts']);
-});
+// ---------- ユーティリティ ----------
+function setDev(cb) { target = 'dev'; cb(); }
+function setProd(cb) { target = 'prod'; cb(); }
+
+function watchTask() {
+    gulp.watch('./src/**/*.{md,json}', filescopyTask);
+    gulp.watch('./src/images/**/*', imagesTask);
+    gulp.watch('./src/templates/**/*.pug', pugTask);
+    gulp.watch('./src/stylesheets/**/*.scss', sassTask);
+    gulp.watch('./src/scripts/**/*.ts', tsTask);
+}
+
+// ---------- 複合タスク ----------
+const build = gulp.parallel(filescopyTask, imagesTask, pugTask, sassTask, tsTask);
+
+exports.dev = gulp.series(setDev, build, watchTask);
+exports.prod = gulp.series(setProd, build, watchTask);
+
+// 旧タスク名も一応エイリアスしておくね★
+exports.pug = pugTask;
+exports.sass = sassTask;
+exports.ts = tsTask;
+exports.images = imagesTask;
+exports.filescopy = filescopyTask;
+
+// デフォルトは dev
+exports.default = exports.dev;

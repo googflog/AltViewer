@@ -1,5 +1,6 @@
 /// <reference path="module/MetaView.ts" />
 /// <reference path="module/AltView.ts" />
+/// <reference path="module/chrome.d.ts" />
 import MetaView = MetaViewModule.MetaView;
 import AltView = AltViewModule.AltView;
 /**
@@ -81,4 +82,4 @@ class ContentScript {
   };
 }
 
-this.ContentScript();
+new ContentScript();
