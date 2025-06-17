@@ -89,6 +89,10 @@
         a {
           display: -webkit-inline-box;
         }
+
+        img {
+          max-width: 50% !important;
+        }
         //
         // a:hover {
         // 	box-shadow: none;
@@ -110,12 +114,16 @@
         text-decoration: none;
         display: inline;
         transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
+        cursor: pointer;
       }
 
       &__a:hover {
         box-shadow: 0 0 0 4px rgba(255, 167, 21, 0.7);
         background: none;
         text-decoration: none;
+        &:has(img) {
+          box-shadow: unset;
+        }
       }
     }
   }
@@ -127,7 +135,7 @@
     right: 34px;
     width: 45px;
     margin: 0;
-    padding: 5px;
+    padding: 0;
     cursor: pointer;
     text-align: center;
     font-size: 17px;
@@ -162,6 +170,7 @@
     width: 100%;
     max-width: 1000px;
     margin: 0;
+    padding: 0;
     transition: 0.45s cubic-bezier(0.23, 1, 0.32, 1);
     opacity: 0;
     transform: scale(0);
@@ -173,6 +182,7 @@
     div,
     img {
       width: 45px;
+      margin: 0;
       // vertical-align: middle;
       // display: table-cell;
     }

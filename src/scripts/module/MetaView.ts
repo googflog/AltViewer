@@ -61,7 +61,7 @@ module MetaViewModule {
           meta += name + ' = &quot;<span class="TitleView012345_Contents__metas__span">' + _val + "</span>&quot; ";
 
           if (2 <= imgis) {
-            img = "<div class='TitleView012345_Contents__metas__img'><a class='TitleView012345_Contents__metas__a' href=" + imgpath + " target='_blank'><img src=" + imgpath + " width=150 ></a></div>";
+            img = "<div class='TitleView012345_Contents__metas__img'><a class='TitleView012345_Contents__metas__a' href=" + imgpath + " target='_blank'><img src=" + imgpath + " ></a></div>";
           }
         }
 
