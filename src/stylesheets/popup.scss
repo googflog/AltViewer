@@ -1,97 +1,93 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body {
-	width: 190px;
-	background: #272727;
-	color: #fff;
-	font-weight: bold;
-	font-size: 12px;
-	line-height: 1em;
-	overflow: hidden;
-	cursor: default;
-}
-
-body {
-	width: 190px;
-	height: 90px;
-	overflow: hidden;
+  width: 190px;
+  height: 90px;
+  overflow: hidden;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1em;
+  color: #fff;
+  cursor: default;
+  background: #272727;
 }
 
 .switchBtn {
-	width: 190px;
-	height: 45px;
-	display: table;
+  display: table;
+  width: 190px;
+  height: 45px;
 
-	&__ttl {
-		width: 130px;
-		height: 45px;
-		vertical-align: middle;
-		text-indent: 2em;
-		text-shadow: 1px 1px 1px #000;
-		box-shadow: inset 0 -1px 0px 0 #525252;
-		background: #272727;
-		display: table-cell;
-	}
+  &__ttl {
+    display: table-cell;
+    width: 130px;
+    height: 45px;
+    vertical-align: middle;
+    text-indent: 2em;
+    text-shadow: 1px 1px 1px #000;
+    background: #272727;
+    box-shadow: inset 0 -1px 0 0 #525252;
+  }
 
-	dl.even &__ttl {
-		background: #3d3d3d;
-	}
+  dl.even &__ttl {
+    background: #3d3d3d;
+  }
 
-	&__btn {
-		width: 45px;
-		height: 45px;
-		background: #eb6100;
-		display: table-cell;
-		cursor: pointer;
-		text-align: center;
-		box-shadow: inset 0 -1px 0px 0 #ef8133;
-		vertical-align: middle;
-		overflow: hidden;
-		&:active,
-		&:link,
-		&:visited {
-			background: #b1500c;
-		}
+  &__btn {
+    display: table-cell;
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    vertical-align: middle;
+    text-align: center;
+    cursor: pointer;
+    background: #eb6100;
+    box-shadow: inset 0 -1px 0 0 #ef8133;
 
-		&:hover {
-			background: #f87a00;
-		}
-	}
+    &:active,
+    &:link,
+    &:visited {
+      background: #b1500c;
+    }
 
-	&.close &__btn {
-		background: url("../../images/close_w.svg") center center no-repeat #b1500c;
+    &:hover {
+      background: #f87a00;
+    }
+  }
 
-		img {
-			display: none;
-		}
+  &.close &__btn {
+    background: url("../../images/close_w.svg") center center no-repeat #b1500c;
 
-		&:active,
-		&:link,
-		&:visited {
-			background: #b1500c;
-		}
+    img {
+      display: none;
+    }
 
-		&:hover {
-			background: url("../../images/close_w.svg") center center no-repeat #f87a00;
-		}
-	}
+    &:active,
+    &:link,
+    &:visited {
+      background: #b1500c;
+    }
+
+    &:hover {
+      background: url("../../images/close_w.svg") center center no-repeat #f87a00;
+    }
+  }
 }
 
 .loadingBlock {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 190px;
-	height: 100vh;
-	background: url("../../images/loading.gif") center 30px no-repeat #272727;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 190px;
+  height: 100vh;
+  background: url("../../images/loading.gif") center 30px no-repeat #272727;
 
-	&__txt {
-		color: #666;
-		margin-top: 58px;
-		text-align: center;
-	}
+  &__txt {
+    margin-top: 58px;
+    color: #666;
+    text-align: center;
+  }
 }

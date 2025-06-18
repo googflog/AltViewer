@@ -1,33 +1,34 @@
 * {
-	margin: 0;
-	padding: 0;
 	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
 }
 
 body {
-	background: #333;
 	color: #fff;
+	background: #333;
 
 	.option {
 		h1 {
-			margin: 1.5em 0 0.7em;
-			color: #fff;
-			border-bottom: 1px solid #fff;
-			font-weight: 200;
 			height: 75px;
+			margin: 1.5em 0 0.7em;
+			font-weight: 200;
+			color: #fff;
 			letter-spacing: 0.05em;
+			border-bottom: 1px solid #fff;
 
 			.version {
-				color: #ccc;
-				font-weight: 100;
 				font-size: 15px;
+				font-weight: 100;
+				color: #ccc;
 			}
 		}
-		text-shadow: 1px 1px 1px #000;
+
 		max-width: 355px;
+		margin: 0 auto;
 		font-size: 17px;
 		line-height: 3em;
-		margin: 0 auto;
+		text-shadow: 1px 1px 1px #000;
 
 		.checkboxBlock {
 			position: relative;
@@ -38,8 +39,7 @@ body {
 			display: none;
 		}
 
-		input[type=checkbox] + label::before {
-			content: "";
+		input[type="checkbox"] + label::before {
 			position: absolute;
 			top: 43%;
 			left: 0;
@@ -49,47 +49,48 @@ body {
 			width: 18px;
 			height: 18px;
 			margin-top: -9px;
+			content: "";
 			background: #ccc;
 			border-radius: 2px;
 			transition: all 300ms ease;
 		}
 
-		input[type=checkbox] + label:hover:before {
+		input[type="checkbox"] + label:hover::before {
 			background: #fea667;
 			transform: scale(1.2);
 		}
 
-		input[type=checkbox]:checked + label::before {
+		input[type="checkbox"]:checked + label::before {
 			background: #ef8133;
 		}
 
-		input[type=checkbox]:checked + label::after {
+		input[type="checkbox"]:checked + label::after {
 			left: 2px;
 			width: 14px;
 			height: 7px;
 			margin-top: -6px;
-			border-left: 2px solid #333;
 			border-bottom: 2px solid #333;
+			border-left: 2px solid #333;
 			-webkit-transform: rotate(-45deg);
 			transform: rotate(-45deg);
 		}
 
-		input[type=checkbox]:checked + label::after {
-			content: "";
+		input[type="checkbox"]:checked + label::after {
 			position: absolute;
 			top: 46%;
 			-moz-box-sizing: border-box;
 			box-sizing: border-box;
 			display: block;
+			content: "";
 		}
 
 		label {
 			padding-left: 30px;
-			cursor: pointer;
-			user-select: none;
 			font-size: 19px;
 			font-weight: 100;
 			letter-spacing: 0.05em;
+			cursor: pointer;
+			user-select: none;
 		}
 	}
 }

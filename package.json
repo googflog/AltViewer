@@ -6,7 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "gulp dev",
-    "prod": "gulp prod"
+    "prod": "gulp prod",
+    "lint:css": "stylelint 'src/stylesheets/**/*.scss'",
+    "lint:css:fix": "stylelint 'src/stylesheets/**/*.scss' --fix"
   },
   "author": "",
   "license": "ISC",
@@ -17,12 +19,14 @@
     "gulp-plumber": "^1.1.0",
     "gulp-pug": "^3.2.0",
     "gulp-sass": "^5.1.0",
-    "sass": "^1.66.1",
     "gulp-sourcemaps": "^2.4.1",
     "gulp-typescript": "^5.0.1",
+    "sass": "^1.66.1",
+    "stylelint": "^16.20.0",
+    "stylelint-config-recess-order": "^7.1.0",
+    "stylelint-config-standard-scss": "^15.0.1",
     "typescript": "^5.4.5"
   },
-  "dependencies": {},
   "volta": {
     "node": "18.19.0"
   }

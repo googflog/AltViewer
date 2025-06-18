@@ -2,7 +2,7 @@
   "name": "__MSG_extName__",
   "short_name": "A & M viewer",
   "manifest_version": 3,
-  "version": "8.3",
+  "version": "8.4",
   "description": "__MSG_extDescription__",
   "icons": {
     "48": "images/48.png",
